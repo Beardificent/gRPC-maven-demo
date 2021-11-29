@@ -1,0 +1,338 @@
+# gRPC & Protocol Buffers
+The following was discovered as part of building this project:
+
+
+.Plan of Attack
+****
+*Add* gRpc vs Rest
+
+*Add* gRpc vs RMI
+
+*Add* gRpc gradle dependencies
+
+*Add* gRpc gradle plugins
+
+*Add* references & documentation (eg LogNet)
+****
+
+
+## what is RPC? 
+
+Remote Procedure Call, we know that gRPC uses this, but what is it? 
+
+//explain RPC
+
+## What is gRPC?
+
+gRPC is a modern framework used to communicate between applications.
+
+Developed by Google, is opensource, google uses gRPC for their backend.
+It enables you to define request and response through RPC (remote call procedure) and will handle what comes next for you.
+
+USes HTTP2 for its requests so it can allow bidirectionary flow of data. Compared to Rest A¨PI (which are usually built on HTTP1.1, they can be used with HTTP/2 but are still limited to the request-response model and use the full communication streaming support (bidirectional))
+
+It uses protocol buffers (protofiles) as the Interface Definition Language (IDL) and also as Data format.
+Protocol buffers arent only used as data foemat but also as service interface definition. (SID).
+
+API MODES
+
+Unary Mode:
+	Client makes request to server, synchronously waits, and then responds with result.
+
+.Unary 
+[source,java]
+----
+rpc SayHello(HelloRequest) returns (HelloResponse);
+----
+
+
+Server Streaming:
+	Client makes a request to the server with multiple responses expected. (compareable to WebSockets)
+eg. youtube
+
+.Server Streaming
+[source,java]
+----
+rpc ReceiveHellos(HelloRequest) returns (stream HelloResponse);
+----
+
+
+Client Streaming RPC:
+	Client makes a lot of requests, open stream of requests,  server response is optional. 
+Eg Instagram (uploading videos, photos, comments)
+
+.Client Streaming
+[source,java]
+----
+rpc SayHelloALot( stream HelloRequest) returns (HelloResponse);
+----
+
+
+BiDirectional Streaming RPC: 
+	both clients are communicating with each other through an open stream 
+eg. instant messaging
+
+.BiDirectional Streaming
+[source,java]
+----
+rpc BothSayHello (stream HelloRequest) returns (stream HelloResponse);
+----
+
+
+## Why do we use gRPC?
+
+gRPC is high performance and highly effiicient and can run in any enviroment.  
+
+## How do we use gRPC?
+
+You start by adding the necessary dependencies & plugins, makes sense, right? 
+
+Which one do we need?  *ff navragen welke overbodig zijn ism Lognet enof ik lognet juist gebruik, plugin vs dependecies*
+
+.*maven dependency*
+[source,java]
+----
+		<dependency>
+			<groupId>io.github.lognet</groupId>
+			<artifactId>grpc-spring-boot-starter</artifactId>
+			<version>4.5</version>
+		</dependency>
+
+		<dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.11</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>1.25</version>
+        </dependency>
+----
+
+lognet dependency makes GRPC integration a bit easier, we can use annotations that take away some boilerplate code
+compile proto file into java files
+
+.*maven plugin*
+[source,java]
+----
+			<plugin>
+				<groupId>com.github.os72</groupId>
+				<artifactId>protoc-jar-maven-plugin</artifactId>
+				<version>3.11.4</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<includeMavenTypes>direct</includeMavenTypes>
+
+							<inputDirectories>
+								<include>src/main/resources</include>
+							</inputDirectories>
+
+							<outputTargets>
+								<outputTarget>
+									<type>java</type>
+									<outputDirectory>src/main/java</outputDirectory>
+								</outputTarget>
+								<outputTarget>
+									<type>grpc-java</type>
+									<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.15.0</pluginArtifact>
+									<outputDirectory>src/main/java</outputDirectory>
+								</outputTarget>
+							</outputTargets>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+----
+
+### GRADLE  DEPENDENCIES EN PLUGINS KOMT LATER, WERKT NIET DEFTIG
+
+
+
+you're going to want to create a proto file, ideally located in the *resources* folder (according to what I know). 
+the file name can be named flupke.proto, the important part to take away from this is the file extension *.proto*. All your protofiles will need to have this.
+
+.*basic protofile example*
+[source,java]
+----
+syntax = "proto3";
+option java_package = "be.generated";
+
+service user {
+    rpc sayHello (HelloRequest) returns (HelloResponse);
+
+}
+
+message HelloRequest {
+    string greeting = 1;
+
+}
+
+message HelloREsponse {
+    string greeting = 1;
+}
+----
+
+Every protofile starts by declaring it's syntax, which would be proto3 at the moment. Below that you should declare the java_package name (it will put the generated codes into that package).
+
+A service contains the methods to perform, pretty easy syntax (look at API modes to see the other modes' syntax again). 
+
+Messages act like an entity/dto/object definition *will check protocol buffer docs*
+
+and that's pretty much it for the protofile.
+
+Key takeaways: 
+
+* Services are equal to methods/functions, whatever you're used to calling them. They  take an input and return an output according to one of the rpo connection modes.
+
+* Messages define the methods, how they look like and what they contain, much like a data object.
+
+After the protofile you will want to create a Service file (in your server application) that will do something, execute something. Your logic goes here.
+
+In your client application you will need to  build a ManagedChannel that'll communicate with your server.
+
+To  build your protofiles you can run *mvn clean install* and it should generate some files for you in the designated folder (java.package that you specified)
+## Setting up your multi module application
+
+gRPC communication happens between a server application and a client side application, and can use a shared module aswell (lets say an API) how do we set this up in one nice and clean project? Spring Booyt lets you use multi modules projects, which we'll set up to help us with this project. 
+
+First off all, go to start.spring.io and generate a project (I created a maven project because most of the gRPC tutorials were in maven, so to make it easy; create a maven project), it doesn't need any real dependecies but choose whichever you like for your demo project. This will be our parent.
+
+The generated project will act as your *ROOT/PARENT* project which will have 3 sub modules; A client side module/application, a server application/module and an APi module. You can create these witjh start.spring.io aswell. and then just copy/paste them in the parent project.
+
+
+.*project tree structure example*
+[source,java]
+----
+parent-module
+	- pom.xml
+	- client-module
+		- src
+		- pom.xml
+	- server-module
+		- src
+		- pom.xml
+	- api-module
+		- src
+		- pom.xml
+----		
+
+Each is their own project, so they each have all a pom file. The parent will contain all shared dependecies & plugins.
+
+.*shared dependency example*
+[source,java]
+----
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <type>pom</type>
+                <version>2.5.6</version>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+----		
+
+But the real kicker in your ROOT/PARENT pom.xml is that you'll have to define your modules.
+
+.*parent pom/xml module declaration*
+[source,java]
+----
+    <modules>
+        <module>grpc-maven-demo-api</module>
+        <module>grpc-maven-demo-client</module>
+        <module>grpc-maven-demo-server</module>
+    </modules>
+----	
+Now Spring knows that they are part of one happy project.
+
+But what about the submodules's pom file?
+
+Well, they need a reference to the parent module and we can achieve this by simply adding a <parent> tag.
+
+.*<parent> tag in submodule pom.xml example*
+[source,java]
+----
+	<parent>
+		<groupId>be.moesmedia.grpc</groupId>
+		<artifactId>grpc-maven-demo</artifactId>
+		<version>1.0.0</version>
+	</parent>
+----	
+
+As for the shared api module which only contains data from the proto file, we can easily add this as a dependency to the modules that require it.
+
+.*api dependency example for submodules*
+[source,java]
+----
+		<dependency>
+			<groupId>be.moes-media.grpc</groupId>
+			<artifactId>api</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+----	
+
+This will prevent the "PACKAGE DOES NOT EXIST" error, if you haven't encountered this error while setting up an gRPC service, you're doing just fine!
+
+## PROS & CONS of gRPC?
+
+
+PROS: 
+* Lightweight, (smaller in size than JSON)
+* Code generation, you won't need to write JSON call objects,  they will be generated for you
+* Grpc has more ways to connect than regular RESTful
+
+
+CONS: 
+* It's a bit of a hassle to set up especially when you can't figure out what you're doing wrong. learning curve is quite steep if I say so myself. 
+
+
+
+
+
+
+
+
+### Reference Documentation
+For further reference, please consider the following sections:
+
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/)
+* [GRPC Documentation] (https://https://grpc.io/)
+* [LogNet gRPC Spring Boot Starter](https://github.com/LogNet/grpc-spring-boot-starter)
+

@@ -1,0 +1,27 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "be.generated.moes";
+
+
+service User {
+    rpc login (LoginRequest) returns (ApiResponse);
+    rpc logout (Void) returns (ApiResponse);
+
+}
+
+message LoginRequest {
+    string firstName = 1;
+    string lastName = 2;
+    string password = 3;
+
+}
+
+
+message ApiResponse {
+    string responseMessage = 1;
+    int32 responseCode = 2;
+}
+
+message Void {
+
+}
