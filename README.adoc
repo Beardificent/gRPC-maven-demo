@@ -92,22 +92,22 @@ Which one do we need?  *ff navragen welke overbodig zijn ism Lognet enof ik logn
 .*maven dependency*
 [source,java]
 ----
-		<dependency>
-			<groupId>io.github.lognet</groupId>
-			<artifactId>grpc-spring-boot-starter</artifactId>
-			<version>4.5</version>
-		</dependency>
+<dependency>
+	<groupId>io.github.lognet</groupId>
+	<artifactId>grpc-spring-boot-starter</artifactId>
+	<version>4.5</version>
+</dependency>
 
-		<dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>3.11</version>
-        </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-protobuf</artifactId>
-            <version>1.25</version>
-        </dependency>
+<dependency>
+    <groupId>com.google.protobuf</groupId>
+    <artifactId>protobuf-java</artifactId>
+    <version>3.11</version>
+</dependency>
+<dependency>
+    <groupId>io.grpc</groupId>
+    <artifactId>grpc-protobuf</artifactId>
+    <version>1.25</version>
+</dependency>
 ----
 
 lognet dependency makes GRPC integration a bit easier, we can use annotations that take away some boilerplate code
@@ -116,38 +116,36 @@ compile proto file into java files
 .*maven plugin*
 [source,java]
 ----
-			<plugin>
-				<groupId>com.github.os72</groupId>
-				<artifactId>protoc-jar-maven-plugin</artifactId>
-				<version>3.11.4</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<includeMavenTypes>direct</includeMavenTypes>
-
-							<inputDirectories>
-								<include>src/main/resources</include>
-							</inputDirectories>
-
-							<outputTargets>
-								<outputTarget>
-									<type>java</type>
-									<outputDirectory>src/main/java</outputDirectory>
-								</outputTarget>
-								<outputTarget>
-									<type>grpc-java</type>
-									<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.15.0</pluginArtifact>
-									<outputDirectory>src/main/java</outputDirectory>
-								</outputTarget>
-							</outputTargets>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<plugin>
+	<groupId>com.github.os72</groupId>
+	<artifactId>protoc-jar-maven-plugin</artifactId>
+	<version>3.11.4</version>
+	<executions>
+		<execution>
+			<phase>generate-sources</phase>
+			<goals>
+				<goal>run</goal>
+			</goals>
+			<configuration>
+				<includeMavenTypes>direct</includeMavenTypes>
+					<inputDirectories>
+						<include>src/main/resources</include>
+					</inputDirectories>
+				<outputTargets>
+					<outputTarget>
+						<type>java</type>
+						<outputDirectory>src/main/java</outputDirectory>
+					</outputTarget>
+					<outputTarget>
+						<type>grpc-java</type>
+						<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.15.0</pluginArtifact>
+						<outputDirectory>src/main/java</outputDirectory>
+					</outputTarget>
+				</outputTargets>
+			</configuration>
+		</execution>
+	</executions>
+</plugin>
 ----
 
 ### GRADLE  DEPENDENCIES EN PLUGINS KOMT LATER, WERKT NIET DEFTIG
@@ -228,44 +226,43 @@ Each is their own project, so they each have all a pom file. The parent will con
 [source,java]
 ----
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <type>pom</type>
-                <version>2.5.6</version>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                        </exclude>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>exec</classifier>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-dependencies</artifactId>
+            <type>pom</type>
+            <version>2.5.6</version>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+ </dependencyManagement>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+            	<excludes>
+                	<exclude>
+                    	<groupId>org.projectlombok</groupId>
+                    	<artifactId>lombok</artifactId>
+                	</exclude>
+            	</excludes>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>repackage</goal>
+                    </goals>
+                	<configuration>
+                    	<classifier>exec</classifier>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
 ----		
 
 But the real kicker in your ROOT/PARENT pom.xml is that you'll have to define your modules.
@@ -288,11 +285,11 @@ Well, they need a reference to the parent module and we can achieve this by simp
 .*<parent> tag in submodule pom.xml example*
 [source,java]
 ----
-	<parent>
-		<groupId>be.moesmedia.grpc</groupId>
-		<artifactId>grpc-maven-demo</artifactId>
-		<version>1.0.0</version>
-	</parent>
+<parent>
+	<groupId>be.moesmedia.grpc</groupId>
+	<artifactId>grpc-maven-demo</artifactId>
+	<version>1.0.0</version>
+</parent>
 ----	
 
 As for the shared api module which only contains data from the proto file, we can easily add this as a dependency to the modules that require it.
@@ -300,11 +297,11 @@ As for the shared api module which only contains data from the proto file, we ca
 .*api dependency example for submodules*
 [source,java]
 ----
-		<dependency>
-			<groupId>be.moes-media.grpc</groupId>
-			<artifactId>api</artifactId>
-			<version>1.0.0</version>
-		</dependency>
+<dependency>
+	<groupId>be.moes-media.grpc</groupId>
+	<artifactId>api</artifactId>
+	<version>1.0.0</version>
+</dependency>
 ----	
 
 This will prevent the "PACKAGE DOES NOT EXIST" error, if you haven't encountered this error while setting up an gRPC service, you're doing just fine!
