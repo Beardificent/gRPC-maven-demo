@@ -4,7 +4,6 @@ package be.moesmedia.grpcmavendemoclient;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import be.generated.moes.ApiResponse;
-import be.generated.moes.Demo;
 import be.generated.moes.LoginRequest;
 import be.generated.moes.UserGrpc;
 import be.generated.moes.UserGrpc.UserBlockingStub;

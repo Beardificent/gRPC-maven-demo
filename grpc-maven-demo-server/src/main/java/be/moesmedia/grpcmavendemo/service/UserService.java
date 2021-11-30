@@ -6,9 +6,6 @@ import be.generated.moes.ApiResponse;
 import be.generated.moes.LoginRequest;
 import be.generated.moes.UserGrpc.UserImplBase;
 
-
-
-
 @GRpcService
 public class UserService extends UserImplBase {
     

@@ -270,11 +270,11 @@ But the real kicker in your ROOT/PARENT pom.xml is that you'll have to define yo
 .*parent pom/xml module declaration*
 [source,java]
 ----
-    <modules>
-        <module>grpc-maven-demo-api</module>
-        <module>grpc-maven-demo-client</module>
-        <module>grpc-maven-demo-server</module>
-    </modules>
+<modules>
+    <module>grpc-maven-demo-api</module>
+    <module>grpc-maven-demo-client</module>
+    <module>grpc-maven-demo-server</module>
+</modules>
 ----	
 Now Spring knows that they are part of one happy project.
 
