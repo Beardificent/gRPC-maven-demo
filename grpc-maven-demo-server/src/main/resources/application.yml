@@ -4,6 +4,8 @@ spring:
     password: changeme
     url: jdbc:postgresql://localhost:5432/grpc-demo-db
     driver-class-name: org.postgresql.Driver
+  flyway:
+    locations: classpath:db/migration,classpath:db/migration-local
 
   jpa:
     open-in-view: false

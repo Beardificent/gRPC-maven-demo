@@ -1,0 +1,31 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "be.generated.student";
+
+service StudentService {
+    rpc getStudentInfo(StudentRequest) returns (StudentResponse);
+}
+
+message StudentRequest {
+    string student_id = 1;
+}
+
+message StudentResponse {
+    string student_id = 1;
+    string name = 2;
+    int32 age = 3;
+    Gender gender = 4;
+    Grade maths = 5;
+    Grade art = 6;
+    Grade chemistry = 7;
+}
+
+enum Grade {
+    PASS = 0;
+    FAIL = 1;
+}
+
+enum Gender {
+    MALE = 0;
+    FEMALE = 1;
+}

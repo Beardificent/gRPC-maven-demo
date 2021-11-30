@@ -3,10 +3,10 @@ package be.moesmedia.grpcmavendemoclient;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import be.generated.moes.ApiResponse;
-import be.generated.moes.LoginRequest;
-import be.generated.moes.UserGrpc;
-import be.generated.moes.UserGrpc.UserBlockingStub;
+import be.generated.demo.ApiResponse;
+import be.generated.demo.LoginRequest;
+import be.generated.demo.UserGrpc;
+import be.generated.demo.UserGrpc.UserBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.extern.slf4j.Slf4j;

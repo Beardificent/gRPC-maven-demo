@@ -1,4 +1,4 @@
-package be.generated.moes;
+package be.generated.demo;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
 import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
@@ -27,30 +27,30 @@ public final class UserGrpc {
   public static final String SERVICE_NAME = "User";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<be.generated.moes.LoginRequest,
-      be.generated.moes.ApiResponse> getLoginMethod;
+  private static volatile io.grpc.MethodDescriptor<be.generated.demo.LoginRequest,
+      be.generated.demo.ApiResponse> getLoginMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "login",
-      requestType = be.generated.moes.LoginRequest.class,
-      responseType = be.generated.moes.ApiResponse.class,
+      requestType = be.generated.demo.LoginRequest.class,
+      responseType = be.generated.demo.ApiResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<be.generated.moes.LoginRequest,
-      be.generated.moes.ApiResponse> getLoginMethod() {
-    io.grpc.MethodDescriptor<be.generated.moes.LoginRequest, be.generated.moes.ApiResponse> getLoginMethod;
+  public static io.grpc.MethodDescriptor<be.generated.demo.LoginRequest,
+      be.generated.demo.ApiResponse> getLoginMethod() {
+    io.grpc.MethodDescriptor<be.generated.demo.LoginRequest, be.generated.demo.ApiResponse> getLoginMethod;
     if ((getLoginMethod = UserGrpc.getLoginMethod) == null) {
       synchronized (UserGrpc.class) {
         if ((getLoginMethod = UserGrpc.getLoginMethod) == null) {
           UserGrpc.getLoginMethod = getLoginMethod = 
-              io.grpc.MethodDescriptor.<be.generated.moes.LoginRequest, be.generated.moes.ApiResponse>newBuilder()
+              io.grpc.MethodDescriptor.<be.generated.demo.LoginRequest, be.generated.demo.ApiResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "User", "login"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  be.generated.moes.LoginRequest.getDefaultInstance()))
+                  be.generated.demo.LoginRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  be.generated.moes.ApiResponse.getDefaultInstance()))
+                  be.generated.demo.ApiResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new UserMethodDescriptorSupplier("login"))
                   .build();
           }
@@ -59,30 +59,30 @@ public final class UserGrpc {
      return getLoginMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<be.generated.moes.Void,
-      be.generated.moes.ApiResponse> getLogoutMethod;
+  private static volatile io.grpc.MethodDescriptor<be.generated.demo.Void,
+      be.generated.demo.ApiResponse> getLogoutMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "logout",
-      requestType = be.generated.moes.Void.class,
-      responseType = be.generated.moes.ApiResponse.class,
+      requestType = be.generated.demo.Void.class,
+      responseType = be.generated.demo.ApiResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<be.generated.moes.Void,
-      be.generated.moes.ApiResponse> getLogoutMethod() {
-    io.grpc.MethodDescriptor<be.generated.moes.Void, be.generated.moes.ApiResponse> getLogoutMethod;
+  public static io.grpc.MethodDescriptor<be.generated.demo.Void,
+      be.generated.demo.ApiResponse> getLogoutMethod() {
+    io.grpc.MethodDescriptor<be.generated.demo.Void, be.generated.demo.ApiResponse> getLogoutMethod;
     if ((getLogoutMethod = UserGrpc.getLogoutMethod) == null) {
       synchronized (UserGrpc.class) {
         if ((getLogoutMethod = UserGrpc.getLogoutMethod) == null) {
           UserGrpc.getLogoutMethod = getLogoutMethod = 
-              io.grpc.MethodDescriptor.<be.generated.moes.Void, be.generated.moes.ApiResponse>newBuilder()
+              io.grpc.MethodDescriptor.<be.generated.demo.Void, be.generated.demo.ApiResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "User", "logout"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  be.generated.moes.Void.getDefaultInstance()))
+                  be.generated.demo.Void.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  be.generated.moes.ApiResponse.getDefaultInstance()))
+                  be.generated.demo.ApiResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new UserMethodDescriptorSupplier("logout"))
                   .build();
           }
@@ -120,15 +120,15 @@ public final class UserGrpc {
 
     /**
      */
-    public void login(be.generated.moes.LoginRequest request,
-        io.grpc.stub.StreamObserver<be.generated.moes.ApiResponse> responseObserver) {
+    public void login(be.generated.demo.LoginRequest request,
+        io.grpc.stub.StreamObserver<be.generated.demo.ApiResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getLoginMethod(), responseObserver);
     }
 
     /**
      */
-    public void logout(be.generated.moes.Void request,
-        io.grpc.stub.StreamObserver<be.generated.moes.ApiResponse> responseObserver) {
+    public void logout(be.generated.demo.Void request,
+        io.grpc.stub.StreamObserver<be.generated.demo.ApiResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getLogoutMethod(), responseObserver);
     }
 
@@ -138,15 +138,15 @@ public final class UserGrpc {
             getLoginMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                be.generated.moes.LoginRequest,
-                be.generated.moes.ApiResponse>(
+                be.generated.demo.LoginRequest,
+                be.generated.demo.ApiResponse>(
                   this, METHODID_LOGIN)))
           .addMethod(
             getLogoutMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                be.generated.moes.Void,
-                be.generated.moes.ApiResponse>(
+                be.generated.demo.Void,
+                be.generated.demo.ApiResponse>(
                   this, METHODID_LOGOUT)))
           .build();
     }
@@ -172,16 +172,16 @@ public final class UserGrpc {
 
     /**
      */
-    public void login(be.generated.moes.LoginRequest request,
-        io.grpc.stub.StreamObserver<be.generated.moes.ApiResponse> responseObserver) {
+    public void login(be.generated.demo.LoginRequest request,
+        io.grpc.stub.StreamObserver<be.generated.demo.ApiResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getLoginMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
      */
-    public void logout(be.generated.moes.Void request,
-        io.grpc.stub.StreamObserver<be.generated.moes.ApiResponse> responseObserver) {
+    public void logout(be.generated.demo.Void request,
+        io.grpc.stub.StreamObserver<be.generated.demo.ApiResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getLogoutMethod(), getCallOptions()), request, responseObserver);
     }
@@ -207,14 +207,14 @@ public final class UserGrpc {
 
     /**
      */
-    public be.generated.moes.ApiResponse login(be.generated.moes.LoginRequest request) {
+    public be.generated.demo.ApiResponse login(be.generated.demo.LoginRequest request) {
       return blockingUnaryCall(
           getChannel(), getLoginMethod(), getCallOptions(), request);
     }
 
     /**
      */
-    public be.generated.moes.ApiResponse logout(be.generated.moes.Void request) {
+    public be.generated.demo.ApiResponse logout(be.generated.demo.Void request) {
       return blockingUnaryCall(
           getChannel(), getLogoutMethod(), getCallOptions(), request);
     }
@@ -240,16 +240,16 @@ public final class UserGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<be.generated.moes.ApiResponse> login(
-        be.generated.moes.LoginRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<be.generated.demo.ApiResponse> login(
+        be.generated.demo.LoginRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getLoginMethod(), getCallOptions()), request);
     }
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<be.generated.moes.ApiResponse> logout(
-        be.generated.moes.Void request) {
+    public com.google.common.util.concurrent.ListenableFuture<be.generated.demo.ApiResponse> logout(
+        be.generated.demo.Void request) {
       return futureUnaryCall(
           getChannel().newCall(getLogoutMethod(), getCallOptions()), request);
     }
@@ -276,12 +276,12 @@ public final class UserGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_LOGIN:
-          serviceImpl.login((be.generated.moes.LoginRequest) request,
-              (io.grpc.stub.StreamObserver<be.generated.moes.ApiResponse>) responseObserver);
+          serviceImpl.login((be.generated.demo.LoginRequest) request,
+              (io.grpc.stub.StreamObserver<be.generated.demo.ApiResponse>) responseObserver);
           break;
         case METHODID_LOGOUT:
-          serviceImpl.logout((be.generated.moes.Void) request,
-              (io.grpc.stub.StreamObserver<be.generated.moes.ApiResponse>) responseObserver);
+          serviceImpl.logout((be.generated.demo.Void) request,
+              (io.grpc.stub.StreamObserver<be.generated.demo.ApiResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -305,7 +305,7 @@ public final class UserGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return be.generated.moes.Demo.getDescriptor();
+      return be.generated.demo.Demo.getDescriptor();
     }
 
     @java.lang.Override

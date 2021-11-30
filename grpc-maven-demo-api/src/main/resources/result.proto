@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "be.generated.result";
+
+service ResultService {
+    rpc getResultForStudents(ResultRequest) returns (ResultResponse);
+}
+
+message ResultRequest{
+    string student_id = 1;
+}
+
+message ResultResponse  {
+    string student_id = 1;
+    Grade maths = 2;
+    Grade art = 3;
+    Grade chemistry = 4;
+}
+
+enum Grade {
+    PASS = 0;
+    FAIL = 1;
+}
+
