@@ -7,7 +7,6 @@ import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.lognet.springboot.grpc.GRpcService;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @GRpcService
 @RequiredArgsConstructor
@@ -15,19 +14,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class StudentGrpcService extends StudentServiceImplBase {
 
 
-  @GetMapping("/student")
   public void getStudentInfo(
     StudentRequest request,
     StreamObserver<StudentResponse> responseObserver
   ) {
+    log.info("gender: " + request.getGender());
     StudentResponse student = StudentResponse
       .newBuilder()
-      .setName("Hi, " + request.getName())
+      .setName(request.getName())
       .setGender(request.getGender())
       .setAge(request.getAge())
       .build();
 
-    log.debug("HELLO STUDENT_GRPC_SERVICE :: GET_STUDENT_INFO");
+    log.info("HELLO STUDENT_GRPC_SERVICE :: GET_STUDENT_INFO");
 
     responseObserver.onNext(student);
     responseObserver.onCompleted();

@@ -165,7 +165,7 @@ option java_package = "be.generated.student";
 
 service StudentService {
     rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
-    rpc createStudent(StudentRequest) returns (StudentResponse);
+    rpc createStudent(StudentRequest) returns (StudentResponse){};
 }
 
 message StudentRequest {
@@ -199,7 +199,9 @@ enum Gender {
 
 Every protofile starts by declaring it's syntax, which would be proto3 at the moment. Below that you should declare the java_package name (it will put the generated codes into that package).
 
-A service contains the methods to perform, pretty easy syntax (look at API modes to see the other modes' syntax again). 
+A service contains:app-name: 
+ 
+the methods to perform, pretty easy syntax (look at API modes to see the other modes' syntax again). 
 
 Messages act like an entity/dto/object definition *will check protocol buffer docs*
 

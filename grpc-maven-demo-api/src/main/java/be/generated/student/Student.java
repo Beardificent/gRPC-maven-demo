@@ -41,11 +41,11 @@ public final class Student {
       "\005maths\030\005 \001(\0162\006.Grade\022\023\n\003art\030\006 \001(\0162\006.Grad" +
       "e\022\031\n\tchemistry\030\007 \001(\0162\006.Grade*\033\n\005Grade\022\010\n" +
       "\004PASS\020\000\022\010\n\004FAIL\020\001*\036\n\006Gender\022\010\n\004MALE\020\000\022\n\n" +
-      "\006FEMALE\020\0012{\n\016StudentService\0225\n\016getStuden" +
+      "\006FEMALE\020\0012}\n\016StudentService\0225\n\016getStuden" +
       "tInfo\022\017.StudentRequest\032\020.StudentResponse" +
-      "\"\000\0222\n\rcreateStudent\022\017.StudentRequest\032\020.S" +
-      "tudentResponseB\030\n\024be.generated.studentP\001" +
-      "b\006proto3"
+      "\"\000\0224\n\rcreateStudent\022\017.StudentRequest\032\020.S" +
+      "tudentResponse\"\000B\030\n\024be.generated.student" +
+      "P\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

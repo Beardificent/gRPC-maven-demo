@@ -5,7 +5,7 @@ option java_package = "be.generated.result";
 
 service ResultService {
     rpc getResultForStudents(ResultRequest) returns (ResultResponse){};
-    rpc createResultForStudents(ResultRequest) returns (ResultResponse);
+    rpc createResultForStudents(ResultRequest) returns (ResultResponse){};
 }
 
 message ResultRequest{

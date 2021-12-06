@@ -22,14 +22,12 @@ public class ResultGrpcService extends ResultServiceImplBase {
     ResultResponse result = ResultResponse
       .newBuilder()
       .setStudentGrade(
-        "You've achieved a " +
+        "maths: " +
         request.getMaths() +
-        " on maths, " +
-        " a " +
+        " art: " +
         request.getArt() +
-        " on art and a " +
-        request.getChemistry() +
-        " on chemistry"
+        " chemistry: " +
+        request.getChemistry()
       )
       .build();
 

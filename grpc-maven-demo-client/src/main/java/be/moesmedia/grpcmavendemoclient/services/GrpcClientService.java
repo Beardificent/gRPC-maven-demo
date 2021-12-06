@@ -1,10 +1,5 @@
-package be.moesmedia.grpcmavendemoclient;
+package be.moesmedia.grpcmavendemoclient.services;
 
-import be.generated.result.Grade;
-import be.generated.result.ResultRequest;
-import be.generated.result.ResultResponse;
-import be.generated.result.ResultServiceGrpc;
-import be.generated.result.ResultServiceGrpc.ResultServiceBlockingStub;
 import be.generated.student.Gender;
 import be.generated.student.StudentRequest;
 import be.generated.student.StudentResponse;
@@ -13,22 +8,20 @@ import be.generated.student.StudentServiceGrpc.StudentServiceBlockingStub;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+import org.springframework.stereotype.Service;
+
+@Service
 @Slf4j
-public class GrpcClientApplication {
+public class GrpcClientService {
 
-  public static void main(String[] args) {
+  public StudentResponse getStudentList() {
     ManagedChannel managedChannel = ManagedChannelBuilder
       .forAddress("localhost", 6565)
       .usePlaintext()
       .build();
 
     StudentServiceBlockingStub studentServiceBlockingStub = StudentServiceGrpc.newBlockingStub(
-      managedChannel
-    );
-    ResultServiceBlockingStub resultServiceBlockingStub = ResultServiceGrpc.newBlockingStub(
       managedChannel
     );
 
@@ -39,27 +32,17 @@ public class GrpcClientApplication {
       .setGender(Gender.MALE)
       .build();
 
-    ResultRequest resultRequest = ResultRequest
-      .newBuilder()
-      .setMaths(Grade.FAIL)
-      .setArt(Grade.PASS)
-      .setChemistry(Grade.FAIL)
-      .build();
-
     StudentResponse studentResponse = studentServiceBlockingStub.getStudentInfo(
       studentRequest
-    );
-    ResultResponse resultResponse = resultServiceBlockingStub.getResultForStudents(
-      resultRequest
     );
 
     log.debug("Received student response");
     log.debug("name: " + studentResponse.getName());
     log.debug("age: " + studentResponse.getAge());
     log.debug("gender: " + studentResponse.getGender());
-    log.debug("Received result response");
-    log.debug("student grade: " + resultResponse.getStudentGrade());
 
     managedChannel.shutdown();
+
+    return studentResponse;
   }
 }

@@ -5,7 +5,7 @@ option java_package = "be.generated.student";
 
 service StudentService {
     rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
-    rpc createStudent(StudentRequest) returns (StudentResponse);
+    rpc createStudent(StudentRequest) returns (StudentResponse){};
 }
 
 message StudentRequest {

@@ -37,11 +37,12 @@ public final class Result {
       "nt_id\030\001 \001(\t\022\025\n\005maths\030\002 \001(\0162\006.Grade\022\023\n\003ar" +
       "t\030\003 \001(\0162\006.Grade\022\031\n\tchemistry\030\004 \001(\0162\006.Gra" +
       "de\"\'\n\016ResultResponse\022\025\n\rstudent_grade\030\001 " +
-      "\001(\t*\033\n\005Grade\022\010\n\004PASS\020\000\022\010\n\004FAIL\020\0012\204\001\n\rRes" +
-      "ultService\0227\n\024getResultForStudents\022\016.Res" +
-      "ultRequest\032\017.ResultResponse\022:\n\027createRes" +
-      "ultForStudents\022\016.ResultRequest\032\017.ResultR" +
-      "esponseB\027\n\023be.generated.resultP\001b\006proto3"
+      "\001(\t*\033\n\005Grade\022\010\n\004PASS\020\000\022\010\n\004FAIL\020\0012\210\001\n\rRes" +
+      "ultService\0229\n\024getResultForStudents\022\016.Res" +
+      "ultRequest\032\017.ResultResponse\"\000\022<\n\027createR" +
+      "esultForStudents\022\016.ResultRequest\032\017.Resul" +
+      "tResponse\"\000B\027\n\023be.generated.resultP\001b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
