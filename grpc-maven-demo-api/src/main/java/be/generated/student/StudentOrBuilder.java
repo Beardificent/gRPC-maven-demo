@@ -3,8 +3,8 @@
 
 package be.generated.student;
 
-public interface StudentRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:StudentRequest)
+public interface StudentOrBuilder extends
+    // @@protoc_insertion_point(interface_extends:Student)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -47,4 +47,37 @@ public interface StudentRequestOrBuilder extends
    * @return The gender.
    */
   be.generated.student.Gender getGender();
+
+  /**
+   * <code>.Grade maths = 5;</code>
+   * @return The enum numeric value on the wire for maths.
+   */
+  int getMathsValue();
+  /**
+   * <code>.Grade maths = 5;</code>
+   * @return The maths.
+   */
+  be.generated.student.Grade getMaths();
+
+  /**
+   * <code>.Grade art = 6;</code>
+   * @return The enum numeric value on the wire for art.
+   */
+  int getArtValue();
+  /**
+   * <code>.Grade art = 6;</code>
+   * @return The art.
+   */
+  be.generated.student.Grade getArt();
+
+  /**
+   * <code>.Grade chemistry = 7;</code>
+   * @return The enum numeric value on the wire for chemistry.
+   */
+  int getChemistryValue();
+  /**
+   * <code>.Grade chemistry = 7;</code>
+   * @return The chemistry.
+   */
+  be.generated.student.Grade getChemistry();
 }

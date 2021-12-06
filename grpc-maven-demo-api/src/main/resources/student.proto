@@ -2,15 +2,20 @@ syntax = "proto3";
 option java_multiple_files = true;
 option java_package = "be.generated.student";
 
+
 service StudentService {
-    rpc getStudentInfo(StudentRequest) returns (StudentResponse);
+    rpc getStudentInfo(StudentRequest) returns (Student);
+    rpc createStudent(StudentRequest) returns (StudentResponse);
 }
 
 message StudentRequest {
     string student_id = 1;
+    string name = 2;
+    int32 age = 3;
+    Gender gender = 4;
 }
 
-message StudentResponse {
+message Student {
     string student_id = 1;
     string name = 2;
     int32 age = 3;
@@ -18,6 +23,10 @@ message StudentResponse {
     Grade maths = 5;
     Grade art = 6;
     Grade chemistry = 7;
+}
+
+message StudentResponse {
+repeated Student student = 1;
 }
 
 enum Grade {

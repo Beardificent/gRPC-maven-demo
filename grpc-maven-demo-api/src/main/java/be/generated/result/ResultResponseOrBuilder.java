@@ -8,47 +8,26 @@ public interface ResultResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string student_id = 1;</code>
-   * @return The studentId.
+   * <code>repeated .Result result = 1;</code>
    */
-  java.lang.String getStudentId();
+  java.util.List<be.generated.result.Result> 
+      getResultList();
   /**
-   * <code>string student_id = 1;</code>
-   * @return The bytes for studentId.
+   * <code>repeated .Result result = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getStudentIdBytes();
-
+  be.generated.result.Result getResult(int index);
   /**
-   * <code>.Grade maths = 2;</code>
-   * @return The enum numeric value on the wire for maths.
+   * <code>repeated .Result result = 1;</code>
    */
-  int getMathsValue();
+  int getResultCount();
   /**
-   * <code>.Grade maths = 2;</code>
-   * @return The maths.
+   * <code>repeated .Result result = 1;</code>
    */
-  be.generated.result.Grade getMaths();
-
+  java.util.List<? extends be.generated.result.ResultOrBuilder> 
+      getResultOrBuilderList();
   /**
-   * <code>.Grade art = 3;</code>
-   * @return The enum numeric value on the wire for art.
+   * <code>repeated .Result result = 1;</code>
    */
-  int getArtValue();
-  /**
-   * <code>.Grade art = 3;</code>
-   * @return The art.
-   */
-  be.generated.result.Grade getArt();
-
-  /**
-   * <code>.Grade chemistry = 4;</code>
-   * @return The enum numeric value on the wire for chemistry.
-   */
-  int getChemistryValue();
-  /**
-   * <code>.Grade chemistry = 4;</code>
-   * @return The chemistry.
-   */
-  be.generated.result.Grade getChemistry();
+  be.generated.result.ResultOrBuilder getResultOrBuilder(
+      int index);
 }

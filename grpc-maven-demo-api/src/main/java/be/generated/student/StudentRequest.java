@@ -17,6 +17,8 @@ private static final long serialVersionUID = 0L;
   }
   private StudentRequest() {
     studentId_ = "";
+    name_ = "";
+    gender_ = 0;
   }
 
   @java.lang.Override
@@ -55,6 +57,23 @@ private static final long serialVersionUID = 0L;
             studentId_ = s;
             break;
           }
+          case 18: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            name_ = s;
+            break;
+          }
+          case 24: {
+
+            age_ = input.readInt32();
+            break;
+          }
+          case 32: {
+            int rawValue = input.readEnum();
+
+            gender_ = rawValue;
+            break;
+          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -76,13 +95,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.student.Student.internal_static_StudentRequest_descriptor;
+    return be.generated.student.StudentOuterClass.internal_static_StudentRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.student.Student.internal_static_StudentRequest_fieldAccessorTable
+    return be.generated.student.StudentOuterClass.internal_static_StudentRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.student.StudentRequest.class, be.generated.student.StudentRequest.Builder.class);
   }
@@ -123,6 +142,71 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int NAME_FIELD_NUMBER = 2;
+  private volatile java.lang.Object name_;
+  /**
+   * <code>string name = 2;</code>
+   * @return The name.
+   */
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      name_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string name = 2;</code>
+   * @return The bytes for name.
+   */
+  public com.google.protobuf.ByteString
+      getNameBytes() {
+    java.lang.Object ref = name_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      name_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int AGE_FIELD_NUMBER = 3;
+  private int age_;
+  /**
+   * <code>int32 age = 3;</code>
+   * @return The age.
+   */
+  public int getAge() {
+    return age_;
+  }
+
+  public static final int GENDER_FIELD_NUMBER = 4;
+  private int gender_;
+  /**
+   * <code>.Gender gender = 4;</code>
+   * @return The enum numeric value on the wire for gender.
+   */
+  public int getGenderValue() {
+    return gender_;
+  }
+  /**
+   * <code>.Gender gender = 4;</code>
+   * @return The gender.
+   */
+  public be.generated.student.Gender getGender() {
+    @SuppressWarnings("deprecation")
+    be.generated.student.Gender result = be.generated.student.Gender.valueOf(gender_);
+    return result == null ? be.generated.student.Gender.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -140,6 +224,15 @@ private static final long serialVersionUID = 0L;
     if (!getStudentIdBytes().isEmpty()) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, studentId_);
     }
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+    }
+    if (age_ != 0) {
+      output.writeInt32(3, age_);
+    }
+    if (gender_ != be.generated.student.Gender.MALE.getNumber()) {
+      output.writeEnum(4, gender_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -151,6 +244,17 @@ private static final long serialVersionUID = 0L;
     size = 0;
     if (!getStudentIdBytes().isEmpty()) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, studentId_);
+    }
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+    }
+    if (age_ != 0) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(3, age_);
+    }
+    if (gender_ != be.generated.student.Gender.MALE.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, gender_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -169,6 +273,11 @@ private static final long serialVersionUID = 0L;
 
     if (!getStudentId()
         .equals(other.getStudentId())) return false;
+    if (!getName()
+        .equals(other.getName())) return false;
+    if (getAge()
+        != other.getAge()) return false;
+    if (gender_ != other.gender_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -182,6 +291,12 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + STUDENT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getStudentId().hashCode();
+    hash = (37 * hash) + NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + AGE_FIELD_NUMBER;
+    hash = (53 * hash) + getAge();
+    hash = (37 * hash) + GENDER_FIELD_NUMBER;
+    hash = (53 * hash) + gender_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -286,13 +401,13 @@ private static final long serialVersionUID = 0L;
       be.generated.student.StudentRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.student.Student.internal_static_StudentRequest_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_StudentRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.student.Student.internal_static_StudentRequest_fieldAccessorTable
+      return be.generated.student.StudentOuterClass.internal_static_StudentRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.student.StudentRequest.class, be.generated.student.StudentRequest.Builder.class);
     }
@@ -317,13 +432,19 @@ private static final long serialVersionUID = 0L;
       super.clear();
       studentId_ = "";
 
+      name_ = "";
+
+      age_ = 0;
+
+      gender_ = 0;
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.student.Student.internal_static_StudentRequest_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_StudentRequest_descriptor;
     }
 
     @java.lang.Override
@@ -344,6 +465,9 @@ private static final long serialVersionUID = 0L;
     public be.generated.student.StudentRequest buildPartial() {
       be.generated.student.StudentRequest result = new be.generated.student.StudentRequest(this);
       result.studentId_ = studentId_;
+      result.name_ = name_;
+      result.age_ = age_;
+      result.gender_ = gender_;
       onBuilt();
       return result;
     }
@@ -395,6 +519,16 @@ private static final long serialVersionUID = 0L;
       if (!other.getStudentId().isEmpty()) {
         studentId_ = other.studentId_;
         onChanged();
+      }
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
+        onChanged();
+      }
+      if (other.getAge() != 0) {
+        setAge(other.getAge());
+      }
+      if (other.gender_ != 0) {
+        setGenderValue(other.getGenderValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -497,6 +631,164 @@ private static final long serialVersionUID = 0L;
   checkByteStringIsUtf8(value);
       
       studentId_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object name_ = "";
+    /**
+     * <code>string name = 2;</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      name_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearName() {
+      
+      name_ = getDefaultInstance().getName();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string name = 2;</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      name_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int age_ ;
+    /**
+     * <code>int32 age = 3;</code>
+     * @return The age.
+     */
+    public int getAge() {
+      return age_;
+    }
+    /**
+     * <code>int32 age = 3;</code>
+     * @param value The age to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAge(int value) {
+      
+      age_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>int32 age = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAge() {
+      
+      age_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int gender_ = 0;
+    /**
+     * <code>.Gender gender = 4;</code>
+     * @return The enum numeric value on the wire for gender.
+     */
+    public int getGenderValue() {
+      return gender_;
+    }
+    /**
+     * <code>.Gender gender = 4;</code>
+     * @param value The enum numeric value on the wire for gender to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGenderValue(int value) {
+      gender_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.Gender gender = 4;</code>
+     * @return The gender.
+     */
+    public be.generated.student.Gender getGender() {
+      @SuppressWarnings("deprecation")
+      be.generated.student.Gender result = be.generated.student.Gender.valueOf(gender_);
+      return result == null ? be.generated.student.Gender.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.Gender gender = 4;</code>
+     * @param value The gender to set.
+     * @return This builder for chaining.
+     */
+    public Builder setGender(be.generated.student.Gender value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      gender_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.Gender gender = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearGender() {
+      
+      gender_ = 0;
       onChanged();
       return this;
     }

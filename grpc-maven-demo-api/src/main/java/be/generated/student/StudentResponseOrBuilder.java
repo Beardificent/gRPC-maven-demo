@@ -8,76 +8,26 @@ public interface StudentResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>string student_id = 1;</code>
-   * @return The studentId.
+   * <code>repeated .Student student = 1;</code>
    */
-  java.lang.String getStudentId();
+  java.util.List<be.generated.student.Student> 
+      getStudentList();
   /**
-   * <code>string student_id = 1;</code>
-   * @return The bytes for studentId.
+   * <code>repeated .Student student = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getStudentIdBytes();
-
+  be.generated.student.Student getStudent(int index);
   /**
-   * <code>string name = 2;</code>
-   * @return The name.
+   * <code>repeated .Student student = 1;</code>
    */
-  java.lang.String getName();
+  int getStudentCount();
   /**
-   * <code>string name = 2;</code>
-   * @return The bytes for name.
+   * <code>repeated .Student student = 1;</code>
    */
-  com.google.protobuf.ByteString
-      getNameBytes();
-
+  java.util.List<? extends be.generated.student.StudentOrBuilder> 
+      getStudentOrBuilderList();
   /**
-   * <code>int32 age = 3;</code>
-   * @return The age.
+   * <code>repeated .Student student = 1;</code>
    */
-  int getAge();
-
-  /**
-   * <code>.Gender gender = 4;</code>
-   * @return The enum numeric value on the wire for gender.
-   */
-  int getGenderValue();
-  /**
-   * <code>.Gender gender = 4;</code>
-   * @return The gender.
-   */
-  be.generated.student.Gender getGender();
-
-  /**
-   * <code>.Grade maths = 5;</code>
-   * @return The enum numeric value on the wire for maths.
-   */
-  int getMathsValue();
-  /**
-   * <code>.Grade maths = 5;</code>
-   * @return The maths.
-   */
-  be.generated.student.Grade getMaths();
-
-  /**
-   * <code>.Grade art = 6;</code>
-   * @return The enum numeric value on the wire for art.
-   */
-  int getArtValue();
-  /**
-   * <code>.Grade art = 6;</code>
-   * @return The art.
-   */
-  be.generated.student.Grade getArt();
-
-  /**
-   * <code>.Grade chemistry = 7;</code>
-   * @return The enum numeric value on the wire for chemistry.
-   */
-  int getChemistryValue();
-  /**
-   * <code>.Grade chemistry = 7;</code>
-   * @return The chemistry.
-   */
-  be.generated.student.Grade getChemistry();
+  be.generated.student.StudentOrBuilder getStudentOrBuilder(
+      int index);
 }

@@ -76,13 +76,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.result.Result.internal_static_ResultRequest_descriptor;
+    return be.generated.result.ResultOuterClass.internal_static_ResultRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.result.Result.internal_static_ResultRequest_fieldAccessorTable
+    return be.generated.result.ResultOuterClass.internal_static_ResultRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.result.ResultRequest.class, be.generated.result.ResultRequest.Builder.class);
   }
@@ -286,13 +286,13 @@ private static final long serialVersionUID = 0L;
       be.generated.result.ResultRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.result.Result.internal_static_ResultRequest_descriptor;
+      return be.generated.result.ResultOuterClass.internal_static_ResultRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.result.Result.internal_static_ResultRequest_fieldAccessorTable
+      return be.generated.result.ResultOuterClass.internal_static_ResultRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.result.ResultRequest.class, be.generated.result.ResultRequest.Builder.class);
     }
@@ -323,7 +323,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.result.Result.internal_static_ResultRequest_descriptor;
+      return be.generated.result.ResultOuterClass.internal_static_ResultRequest_descriptor;
     }
 
     @java.lang.Override
