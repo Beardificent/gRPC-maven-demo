@@ -159,20 +159,41 @@ the file name can be named flupke.proto, the important part to take away from th
 [source,java]
 ----
 syntax = "proto3";
-option java_package = "be.generated";
+option java_multiple_files = true;
+option java_package = "be.generated.student";
 
-service user {
-    rpc sayHello (HelloRequest) returns (HelloResponse);
 
+service StudentService {
+    rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
+    rpc createStudent(StudentRequest) returns (StudentResponse);
 }
 
-message HelloRequest {
-    string greeting = 1;
-
+message StudentRequest {
+    string student_id = 1;
+    string name = 2;
+    int32 age = 3;
+    Gender gender = 4;
 }
 
-message HelloREsponse {
-    string greeting = 1;
+message StudentResponse {
+    string student_id = 1;
+    string name = 2;
+    int32 age = 3;
+    Gender gender = 4;
+    Grade maths = 5;
+    Grade art = 6;
+    Grade chemistry = 7;
+}
+
+
+enum Grade {
+    PASS = 0;
+    FAIL = 1;
+}
+
+enum Gender {
+    MALE = 0;
+    FEMALE = 1;
 }
 ----
 

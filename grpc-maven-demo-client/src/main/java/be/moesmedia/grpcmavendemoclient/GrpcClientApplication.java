@@ -29,7 +29,6 @@ public class GrpcClientApplication {
     StudentServiceBlockingStub studentServiceBlockingStub = StudentServiceGrpc.newBlockingStub(
       managedChannel
     );
-
     ResultServiceBlockingStub resultServiceBlockingStub = ResultServiceGrpc.newBlockingStub(
       managedChannel
     );
@@ -51,12 +50,11 @@ public class GrpcClientApplication {
     StudentResponse studentResponse = studentServiceBlockingStub.getStudentInfo(
       studentRequest
     );
-
     ResultResponse resultResponse = resultServiceBlockingStub.getResultForStudents(
       resultRequest
     );
-    log.debug("Received student response: " + studentResponse.getName());
 
+    log.debug("Received student response: " + studentResponse.getName());
     log.debug("Received result response: " + resultResponse.getStudentGrade());
 
     managedChannel.shutdown();
