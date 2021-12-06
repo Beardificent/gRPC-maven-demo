@@ -25,19 +25,9 @@ public class GrpcClientApplication {
       .usePlaintext()
       .build();
 
-    StudentServiceBlockingStub studentServiceBlockingStub = StudentServiceGrpc.newBlockingStub(
-      managedChannel
-    );
     ResultServiceBlockingStub resultServiceBlockingStub = ResultServiceGrpc.newBlockingStub(
       managedChannel
     );
-
-    StudentRequest studentRequest = StudentRequest
-      .newBuilder()
-      .setName("Fluppe")
-      .setAge(17)
-      .setGender(Gender.MALE)
-      .build();
 
     ResultRequest resultRequest = ResultRequest
       .newBuilder()
@@ -46,19 +36,13 @@ public class GrpcClientApplication {
       .setChemistry(Grade.FAIL)
       .build();
 
-    StudentResponse studentResponse = studentServiceBlockingStub.getStudentInfo(
-      studentRequest
-    );
     ResultResponse resultResponse = resultServiceBlockingStub.getResultForStudents(
       resultRequest
     );
 
-    log.debug("Received student response");
-    log.debug("name: " + studentResponse.getName());
-    log.debug("age: " + studentResponse.getAge());
-    log.debug("gender: " + studentResponse.getGender());
+
     log.debug("Received result response");
-    log.debug("student grade: " + resultResponse.getStudentGrade());
+    log.debug("Student grade: " + resultResponse.getStudentGrade());
 
     managedChannel.shutdown();
   }
