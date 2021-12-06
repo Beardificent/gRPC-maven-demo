@@ -18,4 +18,37 @@ public interface ResultRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getStudentIdBytes();
+
+  /**
+   * <code>.Grade maths = 2;</code>
+   * @return The enum numeric value on the wire for maths.
+   */
+  int getMathsValue();
+  /**
+   * <code>.Grade maths = 2;</code>
+   * @return The maths.
+   */
+  be.generated.result.Grade getMaths();
+
+  /**
+   * <code>.Grade art = 3;</code>
+   * @return The enum numeric value on the wire for art.
+   */
+  int getArtValue();
+  /**
+   * <code>.Grade art = 3;</code>
+   * @return The art.
+   */
+  be.generated.result.Grade getArt();
+
+  /**
+   * <code>.Grade chemistry = 4;</code>
+   * @return The enum numeric value on the wire for chemistry.
+   */
+  int getChemistryValue();
+  /**
+   * <code>.Grade chemistry = 4;</code>
+   * @return The chemistry.
+   */
+  be.generated.result.Grade getChemistry();
 }

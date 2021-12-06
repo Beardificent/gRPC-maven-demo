@@ -1,56 +1,41 @@
 package be.moesmedia.grpcmavendemo.controllers;
 
-import be.generated.result.Grade;
 import be.generated.result.ResultRequest;
 import be.generated.result.ResultResponse;
 import be.generated.result.ResultServiceGrpc.ResultServiceImplBase;
-import be.moesmedia.grpcmavendemo.entities.dto.ResultDtoResponse;
-
-import be.moesmedia.grpcmavendemo.repositories.ResultRepository;
-import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.NoSuchElementException;
-import java.util.UUID;
-
 import org.lognet.springboot.grpc.GRpcService;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @GRpcService
 @Slf4j
 @AllArgsConstructor
 public class ResultGrpcService extends ResultServiceImplBase {
-/* 
-private final ResultRepository resultRepository;
 
- @Transactional
-  public void getResultForStudent(
+  @GetMapping("/result")
+  public void getResultForStudents(
     ResultRequest request,
-    StreamObserver<ResultResponse> observer, String studentId, String id
+    StreamObserver<ResultResponse> responseObserver
   ) {
-    try {
-        final var result = resultRepository.findByStudentId(UUID.fromString(studentId));
+    ResultResponse result = ResultResponse
+      .newBuilder()
+      .setStudentGrade(
+        "You've achieved a " +
+        request.getMaths() +
+        " on maths, " +
+        " a " +
+        request.getArt() +
+        " on art and a " +
+        request.getChemistry() +
+        " on chemistry"
+      )
+      .build();
 
-        ResultResponse.Builder resultResponse = ResultResponse
-          .newBuilder()
-          .setStudentId(studentId)
-          .setMaths(Grade.valueOf(result.getMaths()))
-          .setArt(Grade.valueOf(result.getArt()))
-          .setChemistry(Grade.valueOf(result.getChemistry()))
-          .build();
-    
-          observer.onNext(resultResponse.build());
-          observer.onCompleted();
-          
-    } catch (NoSuchElementException e) {
-        log.debug("No result found with this student id: " + studentId);
-        observer.onError(Status.NOT_FOUND.asRuntimeException());
+    log.info("HELLO RESULT_GRPC_SERVICE :: GET_RESULTS_FOR_STUDENTS");
 
-    } 
-
-    //return resultRepository.findById(UUID.fromString(studentId));
-  }  */
+    responseObserver.onNext(result);
+    responseObserver.onCompleted();
+  }
 }

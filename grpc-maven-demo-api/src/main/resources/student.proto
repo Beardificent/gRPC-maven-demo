@@ -4,7 +4,7 @@ option java_package = "be.generated.student";
 
 
 service StudentService {
-    rpc getStudentInfo(StudentRequest) returns (Student);
+    rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
     rpc createStudent(StudentRequest) returns (StudentResponse);
 }
 
@@ -15,7 +15,7 @@ message StudentRequest {
     Gender gender = 4;
 }
 
-message Student {
+message StudentResponse {
     string student_id = 1;
     string name = 2;
     int32 age = 3;
@@ -25,9 +25,9 @@ message Student {
     Grade chemistry = 7;
 }
 
-message StudentResponse {
+/* message Student {
 repeated Student student = 1;
-}
+} */
 
 enum Grade {
     PASS = 0;

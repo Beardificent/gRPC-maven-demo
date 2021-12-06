@@ -28,21 +28,21 @@ public final class StudentServiceGrpc {
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<be.generated.student.StudentRequest,
-      be.generated.student.Student> getGetStudentInfoMethod;
+      be.generated.student.StudentResponse> getGetStudentInfoMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "getStudentInfo",
       requestType = be.generated.student.StudentRequest.class,
-      responseType = be.generated.student.Student.class,
+      responseType = be.generated.student.StudentResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
   public static io.grpc.MethodDescriptor<be.generated.student.StudentRequest,
-      be.generated.student.Student> getGetStudentInfoMethod() {
-    io.grpc.MethodDescriptor<be.generated.student.StudentRequest, be.generated.student.Student> getGetStudentInfoMethod;
+      be.generated.student.StudentResponse> getGetStudentInfoMethod() {
+    io.grpc.MethodDescriptor<be.generated.student.StudentRequest, be.generated.student.StudentResponse> getGetStudentInfoMethod;
     if ((getGetStudentInfoMethod = StudentServiceGrpc.getGetStudentInfoMethod) == null) {
       synchronized (StudentServiceGrpc.class) {
         if ((getGetStudentInfoMethod = StudentServiceGrpc.getGetStudentInfoMethod) == null) {
           StudentServiceGrpc.getGetStudentInfoMethod = getGetStudentInfoMethod = 
-              io.grpc.MethodDescriptor.<be.generated.student.StudentRequest, be.generated.student.Student>newBuilder()
+              io.grpc.MethodDescriptor.<be.generated.student.StudentRequest, be.generated.student.StudentResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "StudentService", "getStudentInfo"))
@@ -50,7 +50,7 @@ public final class StudentServiceGrpc {
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   be.generated.student.StudentRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  be.generated.student.Student.getDefaultInstance()))
+                  be.generated.student.StudentResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new StudentServiceMethodDescriptorSupplier("getStudentInfo"))
                   .build();
           }
@@ -121,7 +121,7 @@ public final class StudentServiceGrpc {
     /**
      */
     public void getStudentInfo(be.generated.student.StudentRequest request,
-        io.grpc.stub.StreamObserver<be.generated.student.Student> responseObserver) {
+        io.grpc.stub.StreamObserver<be.generated.student.StudentResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getGetStudentInfoMethod(), responseObserver);
     }
 
@@ -139,7 +139,7 @@ public final class StudentServiceGrpc {
             asyncUnaryCall(
               new MethodHandlers<
                 be.generated.student.StudentRequest,
-                be.generated.student.Student>(
+                be.generated.student.StudentResponse>(
                   this, METHODID_GET_STUDENT_INFO)))
           .addMethod(
             getCreateStudentMethod(),
@@ -173,7 +173,7 @@ public final class StudentServiceGrpc {
     /**
      */
     public void getStudentInfo(be.generated.student.StudentRequest request,
-        io.grpc.stub.StreamObserver<be.generated.student.Student> responseObserver) {
+        io.grpc.stub.StreamObserver<be.generated.student.StudentResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getGetStudentInfoMethod(), getCallOptions()), request, responseObserver);
     }
@@ -207,7 +207,7 @@ public final class StudentServiceGrpc {
 
     /**
      */
-    public be.generated.student.Student getStudentInfo(be.generated.student.StudentRequest request) {
+    public be.generated.student.StudentResponse getStudentInfo(be.generated.student.StudentRequest request) {
       return blockingUnaryCall(
           getChannel(), getGetStudentInfoMethod(), getCallOptions(), request);
     }
@@ -240,7 +240,7 @@ public final class StudentServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<be.generated.student.Student> getStudentInfo(
+    public com.google.common.util.concurrent.ListenableFuture<be.generated.student.StudentResponse> getStudentInfo(
         be.generated.student.StudentRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getGetStudentInfoMethod(), getCallOptions()), request);
@@ -277,7 +277,7 @@ public final class StudentServiceGrpc {
       switch (methodId) {
         case METHODID_GET_STUDENT_INFO:
           serviceImpl.getStudentInfo((be.generated.student.StudentRequest) request,
-              (io.grpc.stub.StreamObserver<be.generated.student.Student>) responseObserver);
+              (io.grpc.stub.StreamObserver<be.generated.student.StudentResponse>) responseObserver);
           break;
         case METHODID_CREATE_STUDENT:
           serviceImpl.createStudent((be.generated.student.StudentRequest) request,
@@ -305,7 +305,7 @@ public final class StudentServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return be.generated.student.StudentOuterClass.getDescriptor();
+      return be.generated.student.Student.getDescriptor();
     }
 
     @java.lang.Override

@@ -16,7 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ResultResponse() {
-    result_ = java.util.Collections.emptyList();
+    studentGrade_ = "";
   }
 
   @java.lang.Override
@@ -39,7 +39,6 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
-    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -51,12 +50,9 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              result_ = new java.util.ArrayList<be.generated.result.Result>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            result_.add(
-                input.readMessage(be.generated.result.Result.parser(), extensionRegistry));
+            java.lang.String s = input.readStringRequireUtf8();
+
+            studentGrade_ = s;
             break;
           }
           default: {
@@ -74,59 +70,57 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        result_ = java.util.Collections.unmodifiableList(result_);
-      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.result.ResultOuterClass.internal_static_ResultResponse_descriptor;
+    return be.generated.result.Result.internal_static_ResultResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.result.ResultOuterClass.internal_static_ResultResponse_fieldAccessorTable
+    return be.generated.result.Result.internal_static_ResultResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.result.ResultResponse.class, be.generated.result.ResultResponse.Builder.class);
   }
 
-  public static final int RESULT_FIELD_NUMBER = 1;
-  private java.util.List<be.generated.result.Result> result_;
+  public static final int STUDENT_GRADE_FIELD_NUMBER = 1;
+  private volatile java.lang.Object studentGrade_;
   /**
-   * <code>repeated .Result result = 1;</code>
+   * <code>string student_grade = 1;</code>
+   * @return The studentGrade.
    */
-  public java.util.List<be.generated.result.Result> getResultList() {
-    return result_;
+  public java.lang.String getStudentGrade() {
+    java.lang.Object ref = studentGrade_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      studentGrade_ = s;
+      return s;
+    }
   }
   /**
-   * <code>repeated .Result result = 1;</code>
+   * <code>string student_grade = 1;</code>
+   * @return The bytes for studentGrade.
    */
-  public java.util.List<? extends be.generated.result.ResultOrBuilder> 
-      getResultOrBuilderList() {
-    return result_;
-  }
-  /**
-   * <code>repeated .Result result = 1;</code>
-   */
-  public int getResultCount() {
-    return result_.size();
-  }
-  /**
-   * <code>repeated .Result result = 1;</code>
-   */
-  public be.generated.result.Result getResult(int index) {
-    return result_.get(index);
-  }
-  /**
-   * <code>repeated .Result result = 1;</code>
-   */
-  public be.generated.result.ResultOrBuilder getResultOrBuilder(
-      int index) {
-    return result_.get(index);
+  public com.google.protobuf.ByteString
+      getStudentGradeBytes() {
+    java.lang.Object ref = studentGrade_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      studentGrade_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -143,8 +137,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    for (int i = 0; i < result_.size(); i++) {
-      output.writeMessage(1, result_.get(i));
+    if (!getStudentGradeBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, studentGrade_);
     }
     unknownFields.writeTo(output);
   }
@@ -155,9 +149,8 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    for (int i = 0; i < result_.size(); i++) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, result_.get(i));
+    if (!getStudentGradeBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, studentGrade_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -174,8 +167,8 @@ private static final long serialVersionUID = 0L;
     }
     be.generated.result.ResultResponse other = (be.generated.result.ResultResponse) obj;
 
-    if (!getResultList()
-        .equals(other.getResultList())) return false;
+    if (!getStudentGrade()
+        .equals(other.getStudentGrade())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -187,10 +180,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (getResultCount() > 0) {
-      hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + getResultList().hashCode();
-    }
+    hash = (37 * hash) + STUDENT_GRADE_FIELD_NUMBER;
+    hash = (53 * hash) + getStudentGrade().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -295,13 +286,13 @@ private static final long serialVersionUID = 0L;
       be.generated.result.ResultResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.result.ResultOuterClass.internal_static_ResultResponse_descriptor;
+      return be.generated.result.Result.internal_static_ResultResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.result.ResultOuterClass.internal_static_ResultResponse_fieldAccessorTable
+      return be.generated.result.Result.internal_static_ResultResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.result.ResultResponse.class, be.generated.result.ResultResponse.Builder.class);
     }
@@ -319,25 +310,20 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
-        getResultFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (resultBuilder_ == null) {
-        result_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      } else {
-        resultBuilder_.clear();
-      }
+      studentGrade_ = "";
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.result.ResultOuterClass.internal_static_ResultResponse_descriptor;
+      return be.generated.result.Result.internal_static_ResultResponse_descriptor;
     }
 
     @java.lang.Override
@@ -357,16 +343,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public be.generated.result.ResultResponse buildPartial() {
       be.generated.result.ResultResponse result = new be.generated.result.ResultResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (resultBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
-          result_ = java.util.Collections.unmodifiableList(result_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.result_ = result_;
-      } else {
-        result.result_ = resultBuilder_.build();
-      }
+      result.studentGrade_ = studentGrade_;
       onBuilt();
       return result;
     }
@@ -415,31 +392,9 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(be.generated.result.ResultResponse other) {
       if (other == be.generated.result.ResultResponse.getDefaultInstance()) return this;
-      if (resultBuilder_ == null) {
-        if (!other.result_.isEmpty()) {
-          if (result_.isEmpty()) {
-            result_ = other.result_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureResultIsMutable();
-            result_.addAll(other.result_);
-          }
-          onChanged();
-        }
-      } else {
-        if (!other.result_.isEmpty()) {
-          if (resultBuilder_.isEmpty()) {
-            resultBuilder_.dispose();
-            resultBuilder_ = null;
-            result_ = other.result_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            resultBuilder_ = 
-              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                 getResultFieldBuilder() : null;
-          } else {
-            resultBuilder_.addAllMessages(other.result_);
-          }
-        }
+      if (!other.getStudentGrade().isEmpty()) {
+        studentGrade_ = other.studentGrade_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -469,246 +424,81 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
-    private int bitField0_;
 
-    private java.util.List<be.generated.result.Result> result_ =
-      java.util.Collections.emptyList();
-    private void ensureResultIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
-        result_ = new java.util.ArrayList<be.generated.result.Result>(result_);
-        bitField0_ |= 0x00000001;
-       }
-    }
-
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        be.generated.result.Result, be.generated.result.Result.Builder, be.generated.result.ResultOrBuilder> resultBuilder_;
-
+    private java.lang.Object studentGrade_ = "";
     /**
-     * <code>repeated .Result result = 1;</code>
+     * <code>string student_grade = 1;</code>
+     * @return The studentGrade.
      */
-    public java.util.List<be.generated.result.Result> getResultList() {
-      if (resultBuilder_ == null) {
-        return java.util.Collections.unmodifiableList(result_);
+    public java.lang.String getStudentGrade() {
+      java.lang.Object ref = studentGrade_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        studentGrade_ = s;
+        return s;
       } else {
-        return resultBuilder_.getMessageList();
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>repeated .Result result = 1;</code>
+     * <code>string student_grade = 1;</code>
+     * @return The bytes for studentGrade.
      */
-    public int getResultCount() {
-      if (resultBuilder_ == null) {
-        return result_.size();
+    public com.google.protobuf.ByteString
+        getStudentGradeBytes() {
+      java.lang.Object ref = studentGrade_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        studentGrade_ = b;
+        return b;
       } else {
-        return resultBuilder_.getCount();
+        return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>repeated .Result result = 1;</code>
+     * <code>string student_grade = 1;</code>
+     * @param value The studentGrade to set.
+     * @return This builder for chaining.
      */
-    public be.generated.result.Result getResult(int index) {
-      if (resultBuilder_ == null) {
-        return result_.get(index);
-      } else {
-        return resultBuilder_.getMessage(index);
-      }
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder setResult(
-        int index, be.generated.result.Result value) {
-      if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureResultIsMutable();
-        result_.set(index, value);
-        onChanged();
-      } else {
-        resultBuilder_.setMessage(index, value);
-      }
+    public Builder setStudentGrade(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      studentGrade_ = value;
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .Result result = 1;</code>
+     * <code>string student_grade = 1;</code>
+     * @return This builder for chaining.
      */
-    public Builder setResult(
-        int index, be.generated.result.Result.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.set(index, builderForValue.build());
-        onChanged();
-      } else {
-        resultBuilder_.setMessage(index, builderForValue.build());
-      }
+    public Builder clearStudentGrade() {
+      
+      studentGrade_ = getDefaultInstance().getStudentGrade();
+      onChanged();
       return this;
     }
     /**
-     * <code>repeated .Result result = 1;</code>
+     * <code>string student_grade = 1;</code>
+     * @param value The bytes for studentGrade to set.
+     * @return This builder for chaining.
      */
-    public Builder addResult(be.generated.result.Result value) {
-      if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureResultIsMutable();
-        result_.add(value);
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(value);
-      }
+    public Builder setStudentGradeBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      studentGrade_ = value;
+      onChanged();
       return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder addResult(
-        int index, be.generated.result.Result value) {
-      if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        ensureResultIsMutable();
-        result_.add(index, value);
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(index, value);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder addResult(
-        be.generated.result.Result.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.add(builderForValue.build());
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder addResult(
-        int index, be.generated.result.Result.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.add(index, builderForValue.build());
-        onChanged();
-      } else {
-        resultBuilder_.addMessage(index, builderForValue.build());
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder addAllResult(
-        java.lang.Iterable<? extends be.generated.result.Result> values) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, result_);
-        onChanged();
-      } else {
-        resultBuilder_.addAllMessages(values);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder clearResult() {
-      if (resultBuilder_ == null) {
-        result_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
-      } else {
-        resultBuilder_.clear();
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public Builder removeResult(int index) {
-      if (resultBuilder_ == null) {
-        ensureResultIsMutable();
-        result_.remove(index);
-        onChanged();
-      } else {
-        resultBuilder_.remove(index);
-      }
-      return this;
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public be.generated.result.Result.Builder getResultBuilder(
-        int index) {
-      return getResultFieldBuilder().getBuilder(index);
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public be.generated.result.ResultOrBuilder getResultOrBuilder(
-        int index) {
-      if (resultBuilder_ == null) {
-        return result_.get(index);  } else {
-        return resultBuilder_.getMessageOrBuilder(index);
-      }
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public java.util.List<? extends be.generated.result.ResultOrBuilder> 
-         getResultOrBuilderList() {
-      if (resultBuilder_ != null) {
-        return resultBuilder_.getMessageOrBuilderList();
-      } else {
-        return java.util.Collections.unmodifiableList(result_);
-      }
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public be.generated.result.Result.Builder addResultBuilder() {
-      return getResultFieldBuilder().addBuilder(
-          be.generated.result.Result.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public be.generated.result.Result.Builder addResultBuilder(
-        int index) {
-      return getResultFieldBuilder().addBuilder(
-          index, be.generated.result.Result.getDefaultInstance());
-    }
-    /**
-     * <code>repeated .Result result = 1;</code>
-     */
-    public java.util.List<be.generated.result.Result.Builder> 
-         getResultBuilderList() {
-      return getResultFieldBuilder().getBuilderList();
-    }
-    private com.google.protobuf.RepeatedFieldBuilderV3<
-        be.generated.result.Result, be.generated.result.Result.Builder, be.generated.result.ResultOrBuilder> 
-        getResultFieldBuilder() {
-      if (resultBuilder_ == null) {
-        resultBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-            be.generated.result.Result, be.generated.result.Result.Builder, be.generated.result.ResultOrBuilder>(
-                result_,
-                ((bitField0_ & 0x00000001) != 0),
-                getParentForChildren(),
-                isClean());
-        result_ = null;
-      }
-      return resultBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

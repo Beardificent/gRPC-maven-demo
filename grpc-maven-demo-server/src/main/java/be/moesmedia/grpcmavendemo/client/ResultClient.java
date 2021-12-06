@@ -8,7 +8,7 @@ import be.generated.result.ResultResponse;
 import be.generated.result.ResultServiceGrpc;
 import io.grpc.Channel;
 
-public class ResultClient {
+/* public class ResultClient {
     
 private ResultServiceGrpc.ResultServiceBlockingStub resultServiceBlockingStub;
 
@@ -27,4 +27,4 @@ public List<String> getResults(String studentId) {
 
     return results;
 }
-}
+} */

@@ -81,7 +81,7 @@ public enum Grade
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return be.generated.result.ResultOuterClass.getDescriptor().getEnumTypes().get(0);
+    return be.generated.result.Result.getDescriptor().getEnumTypes().get(0);
   }
 
   private static final Grade[] VALUES = values();

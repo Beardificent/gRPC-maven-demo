@@ -8,26 +8,14 @@ public interface ResultResponseOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .Result result = 1;</code>
+   * <code>string student_grade = 1;</code>
+   * @return The studentGrade.
    */
-  java.util.List<be.generated.result.Result> 
-      getResultList();
+  java.lang.String getStudentGrade();
   /**
-   * <code>repeated .Result result = 1;</code>
+   * <code>string student_grade = 1;</code>
+   * @return The bytes for studentGrade.
    */
-  be.generated.result.Result getResult(int index);
-  /**
-   * <code>repeated .Result result = 1;</code>
-   */
-  int getResultCount();
-  /**
-   * <code>repeated .Result result = 1;</code>
-   */
-  java.util.List<? extends be.generated.result.ResultOrBuilder> 
-      getResultOrBuilderList();
-  /**
-   * <code>repeated .Result result = 1;</code>
-   */
-  be.generated.result.ResultOrBuilder getResultOrBuilder(
-      int index);
+  com.google.protobuf.ByteString
+      getStudentGradeBytes();
 }
