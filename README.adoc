@@ -1,9 +1,12 @@
 # gRPC & Protocol Buffers
 The following was discovered as part of building this project:
 
+## WIP
 
 .Plan of Attack
 ****
+*Add* Next step to connect server to client
+
 *Add* gRpc vs Rest
 
 *Add* gRpc vs RMI
@@ -13,6 +16,9 @@ The following was discovered as part of building this project:
 *Add* gRpc gradle plugins
 
 *Add* references & documentation (eg LogNet)
+
+*GOAL OF PROJECT* Foolproof crud grpc demo, not just send 1 and receive 2. ATM still figuring out how to implement controller, service, repo architecture to create a simple addition list.
+
 ****
 
 
@@ -231,7 +237,6 @@ The generated project will act as your *ROOT/PARENT* project which will have 3 s
 [source,java]
 ----
 parent-module
-	- pom.xml
 	- client-module
 		- src
 		- pom.xml
@@ -241,6 +246,7 @@ parent-module
 	- api-module
 		- src
 		- pom.xml
+	- pom.xml
 ----		
 
 Each is their own project, so they each have all a pom file. The parent will contain all shared dependecies & plugins.
@@ -329,6 +335,121 @@ As for the shared api module which only contains data from the proto file, we ca
 
 This will prevent the "PACKAGE DOES NOT EXIST" error, if you haven't encountered this error while setting up an gRPC service, you're doing just fine!
 
+
+### Initial server to client connnection.
+
+.*server side GrpcService example*
+[source,java]
+----
+@GRpcService	-- comes from LogNet
+@Slf4j			-- comes from Lombok		
+public class StudentGrpcService extends StudentServiceImplBase {
+
+  public void getStudentInfo(
+    StudentRequest request,
+    StreamObserver<StudentResponse> responseObserver
+  ) {
+    log.info("gender: " + request.getGender());
+    StudentResponse student = StudentResponse
+      .newBuilder()
+      .setName(request.getName())
+      .setGender(request.getGender())
+      .setAge(request.getAge())
+      .build();
+
+    log.info("HELLO STUDENT_GRPC_SERVICE :: GET_STUDENT_INFO");
+
+    responseObserver.onNext(student);
+    responseObserver.onCompleted();
+  }
+----	
+
+
+.*client side application example*
+[source,java]
+----
+@GRpcService	--comes from LogNet
+@Slf4j			--comes from Lombok
+public class GrpcClientStudentService {
+
+  public StudentResponse getStudentList() {
+    ManagedChannel managedChannel = ManagedChannelBuilder
+      .forAddress("localhost", 6565)
+      .usePlaintext()
+      .build();
+
+    StudentServiceBlockingStub studentServiceBlockingStub = StudentServiceGrpc.newBlockingStub(
+      managedChannel
+    );
+
+    StudentRequest studentRequest = StudentRequest
+      .newBuilder()
+      .setName("Fluppe")
+      .setAge(17)
+      .setGender(Gender.MALE)
+      .build();
+
+    StudentResponse studentResponse = studentServiceBlockingStub.getStudentInfo(
+      studentRequest
+    );
+
+    log.debug("Received student response");
+    log.debug("name: " + studentResponse.getName());
+    log.debug("age: " + studentResponse.getAge());
+    log.debug("gender: " + studentResponse.getGender());
+
+    managedChannel.shutdown();
+
+    return studentResponse;
+  }
+}
+----	
+
+Run your server GrpcServerApplication and run the GrpcClientApplication on separate terminals. You should see the studentResponse at the bottom.
+
+Connection should be up and running with "Fluppe" as student response name.
+
+### Setting up a database with docker.
+to be able to save data, we need a database connection. With the help of docker we can easily do this by adding a *docker-compose.yml* file.  the file's content is relatively easy to read
+
+.*docker-compose.yml example*
+[source,yaml]
+----
+version: "3"
+
+services:
+  postgres:
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: database-name
+    ports:
+      - 5432:5432
+----	
+
+You'd also need to add an *application.yml*  file to your server's resources folder with the following content (to match your *docker-compose* file).
+
+.*application.yml example*
+[source,yaml]
+----
+spring:
+  datasource:
+    username: postgres
+    password: password
+    url: jdbc:postgresql://localhost:5432/database-name
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+
+----	
+
+and then you run it with the command: *docker-compose up*. Be sure to have docker on your system. if you have docker desktop, you can even check the status of your docker container and the database it created. 
+
+Now we're ready to create tables and add data.
+
+
 ## PROS & CONS of gRPC?
 
 
@@ -348,11 +469,16 @@ CONS:
 
 
 
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Initializr](https://start.spring.io/)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/)
 * [GRPC Documentation] (https://https://grpc.io/)
 * [LogNet gRPC Spring Boot Starter](https://github.com/LogNet/grpc-spring-boot-starter)
+* [Docker Desktop](https://www.docker.com/products/docker-desktop)
+* [Overview of Docker Compose](https://docs.docker.com/compose/)
+* [PostgreSQL](https://www.postgresql.org/)
 
