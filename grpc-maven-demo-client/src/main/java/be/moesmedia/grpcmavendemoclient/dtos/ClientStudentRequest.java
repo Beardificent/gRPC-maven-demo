@@ -4,9 +4,13 @@ import java.util.List;
 
 import be.generated.student.Gender;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
-public class StudentClientRequest {
+@SuperBuilder(toBuilder = true)
+@NoArgsConstructor
+public class ClientStudentRequest {
 
   private String name;
 
@@ -14,6 +18,6 @@ public class StudentClientRequest {
 
   private Gender gender;
   
-  private List<ResultClientRequest> results;
+  private List<ClientResultRequest> results;
 
 }

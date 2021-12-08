@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @GRpcService
 @Slf4j
 @AllArgsConstructor
-public class ResultGrpcService extends ResultServiceImplBase {
+public class GrpcServerResultService extends ResultServiceImplBase {
 
   @GetMapping("/result")
   public void getResultForStudents(
@@ -22,11 +22,11 @@ public class ResultGrpcService extends ResultServiceImplBase {
     ResultResponse result = ResultResponse
       .newBuilder()
       .setStudentGrade(
-        "maths: " +
+        "::Maths: " +
         request.getMaths() +
-        " art: " +
+        " ::Art: " +
         request.getArt() +
-        " chemistry: " +
+        " ::Chemistry: " +
         request.getChemistry()
       )
       .build();

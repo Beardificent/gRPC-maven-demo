@@ -333,12 +333,14 @@ As for the shared api module which only contains data from the proto file, we ca
 </dependency>
 ----	
 
+....
 This will prevent the "PACKAGE DOES NOT EXIST" error, if you haven't encountered this error while setting up an gRPC service, you're doing just fine!
+....
 
 
 ### Initial server to client connnection.
 
-.*server side GrpcService example*
+.*server side GrpcService example/implementation class for protoservice*
 [source,java]
 ----
 @GRpcService	-- comes from LogNet

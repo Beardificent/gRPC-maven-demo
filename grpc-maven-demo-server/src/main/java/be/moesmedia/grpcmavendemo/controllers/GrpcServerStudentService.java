@@ -11,14 +11,14 @@ import org.lognet.springboot.grpc.GRpcService;
 @GRpcService
 @RequiredArgsConstructor
 @Slf4j
-public class StudentGrpcService extends StudentServiceImplBase {
+public class GrpcServerStudentService extends StudentServiceImplBase {
 
 
   public void getStudentInfo(
     StudentRequest request,
     StreamObserver<StudentResponse> responseObserver
   ) {
-    log.info("gender: " + request.getGender());
+
     StudentResponse student = StudentResponse
       .newBuilder()
       .setName(request.getName())
@@ -26,7 +26,10 @@ public class StudentGrpcService extends StudentServiceImplBase {
       .setAge(request.getAge())
       .build();
 
-    log.info("HELLO STUDENT_GRPC_SERVICE :: GET_STUDENT_INFO");
+    log.info("SERVER SIDE     :: GRPC_SERVER_STUDENT_SERVICE has been used");
+    log.info("StudentResponse :: NAME: " + request.getName());
+    log.info("StudentResponse :: AGE: " + request.getAge());
+    log.info("StudentResponse :: GENDER: " + request.getGender());
 
     responseObserver.onNext(student);
     responseObserver.onCompleted();

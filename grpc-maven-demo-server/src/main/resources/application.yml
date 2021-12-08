@@ -9,3 +9,8 @@ spring:
 
   jpa:
     open-in-view: false
+
+server:
+    port : 8420 # different port than default because GrpcClientApplication runs on default port(8080).
+# grpc: 
+#     port: 6666

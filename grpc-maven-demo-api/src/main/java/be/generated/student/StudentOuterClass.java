@@ -20,15 +20,15 @@ public final class StudentOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_StudentRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Student_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Student_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_StudentResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_StudentResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Student_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Student_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -40,17 +40,18 @@ public final class StudentOuterClass {
     java.lang.String[] descriptorData = {
       "\n\rstudent.proto\"X\n\016StudentRequest\022\022\n\nstu" +
       "dent_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013\n\003age\030\003 \001(\005" +
-      "\022\027\n\006gender\030\004 \001(\0162\007.Gender\"\230\001\n\007Student\022\022\n" +
-      "\nstudent_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013\n\003age\030\003" +
-      " \001(\005\022\027\n\006gender\030\004 \001(\0162\007.Gender\022\025\n\005maths\030\005" +
-      " \001(\0162\006.Grade\022\023\n\003art\030\006 \001(\0162\006.Grade\022\031\n\tche" +
-      "mistry\030\007 \001(\0162\006.Grade\",\n\017StudentResponse\022" +
-      "\031\n\007student\030\001 \003(\0132\010.Student*\033\n\005Grade\022\010\n\004P" +
-      "ASS\020\000\022\010\n\004FAIL\020\001*\036\n\006Gender\022\010\n\004MALE\020\000\022\n\n\006F" +
-      "EMALE\020\0012q\n\016StudentService\022+\n\016getStudentI" +
-      "nfo\022\017.StudentRequest\032\010.Student\0222\n\rcreate" +
-      "Student\022\017.StudentRequest\032\020.StudentRespon" +
-      "seB\030\n\024be.generated.studentP\001b\006proto3"
+      "\022\027\n\006gender\030\004 \001(\0162\007.Gender\"\240\001\n\017StudentRes" +
+      "ponse\022\022\n\nstudent_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022" +
+      "\013\n\003age\030\003 \001(\005\022\027\n\006gender\030\004 \001(\0162\007.Gender\022\025\n" +
+      "\005maths\030\005 \001(\0162\006.Grade\022\023\n\003art\030\006 \001(\0162\006.Grad" +
+      "e\022\031\n\tchemistry\030\007 \001(\0162\006.Grade\",\n\007Student\022" +
+      "!\n\007student\030\001 \001(\0132\020.StudentResponse*\033\n\005Gr" +
+      "ade\022\010\n\004PASS\020\000\022\010\n\004FAIL\020\001*\036\n\006Gender\022\010\n\004MAL" +
+      "E\020\000\022\n\n\006FEMALE\020\0012}\n\016StudentService\0225\n\016get" +
+      "StudentInfo\022\017.StudentRequest\032\020.StudentRe" +
+      "sponse\"\000\0224\n\rcreateStudent\022\017.StudentReque" +
+      "st\032\020.StudentResponse\"\000B\030\n\024be.generated.s" +
+      "tudentP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -62,17 +63,17 @@ public final class StudentOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_StudentRequest_descriptor,
         new java.lang.String[] { "StudentId", "Name", "Age", "Gender", });
-    internal_static_Student_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Student_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Student_descriptor,
-        new java.lang.String[] { "StudentId", "Name", "Age", "Gender", "Maths", "Art", "Chemistry", });
     internal_static_StudentResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_StudentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_StudentResponse_descriptor,
+        new java.lang.String[] { "StudentId", "Name", "Age", "Gender", "Maths", "Art", "Chemistry", });
+    internal_static_Student_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Student_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Student_descriptor,
         new java.lang.String[] { "Student", });
   }
 

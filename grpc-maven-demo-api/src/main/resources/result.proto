@@ -19,9 +19,9 @@ message ResultResponse  {
     string student_grade = 1;
 }
 
-/* message Result {
-    repeated Result result = 1;
-} */
+ message Result {
+    ResultResponse result = 1;
+} 
 
 enum Grade {
     PASS = 0;

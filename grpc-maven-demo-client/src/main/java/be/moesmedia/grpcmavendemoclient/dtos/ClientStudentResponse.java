@@ -8,12 +8,12 @@ import lombok.experimental.SuperBuilder;
 
 @Data
 @SuperBuilder(toBuilder = true)
-public class StudentClientResponse {
+public class ClientStudentResponse {
     private String name;
 
     private Integer age;
 
     private Gender gender;
 
-    private List<ResultClientRequest> results;
+    private List<ClientResultRequest> results;
 }

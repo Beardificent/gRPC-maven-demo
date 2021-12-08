@@ -116,13 +116,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.student.Student.internal_static_StudentResponse_descriptor;
+    return be.generated.student.StudentOuterClass.internal_static_StudentResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.student.Student.internal_static_StudentResponse_fieldAccessorTable
+    return be.generated.student.StudentOuterClass.internal_static_StudentResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.student.StudentResponse.class, be.generated.student.StudentResponse.Builder.class);
   }
@@ -509,13 +509,13 @@ private static final long serialVersionUID = 0L;
       be.generated.student.StudentResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.student.Student.internal_static_StudentResponse_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_StudentResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.student.Student.internal_static_StudentResponse_fieldAccessorTable
+      return be.generated.student.StudentOuterClass.internal_static_StudentResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.student.StudentResponse.class, be.generated.student.StudentResponse.Builder.class);
     }
@@ -558,7 +558,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.student.Student.internal_static_StudentResponse_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_StudentResponse_descriptor;
     }
 
     @java.lang.Override

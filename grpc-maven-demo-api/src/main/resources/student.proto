@@ -25,9 +25,9 @@ message StudentResponse {
     Grade chemistry = 7;
 }
 
-/* message Student {
-repeated Student student = 1;
-}  */
+ message Student {
+    StudentResponse student = 1;
+}  
 
 enum Grade {
     PASS = 0;

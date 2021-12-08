@@ -13,5 +13,5 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class StudentDtoRequest {
     
-    private String studentId;
+    private String id;
 }

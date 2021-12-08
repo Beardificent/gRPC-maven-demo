@@ -4,7 +4,7 @@ import be.generated.result.Grade;
 import lombok.Data;
 
 @Data
-public class ResultClientRequest {
+public class ClientResultRequest {
     
     private String id;
 

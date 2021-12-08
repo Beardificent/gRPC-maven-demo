@@ -20,15 +20,15 @@ public final class ResultOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ResultRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Result_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Result_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ResultResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_ResultResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Result_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Result_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -38,16 +38,17 @@ public final class ResultOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\014result.proto\"#\n\rResultRequest\022\022\n\nstude" +
-      "nt_id\030\001 \001(\t\"c\n\006Result\022\022\n\nstudent_id\030\001 \001(" +
-      "\t\022\025\n\005maths\030\002 \001(\0162\006.Grade\022\023\n\003art\030\003 \001(\0162\006." +
-      "Grade\022\031\n\tchemistry\030\004 \001(\0162\006.Grade\")\n\016Resu" +
-      "ltResponse\022\027\n\006result\030\001 \003(\0132\007.Result*\033\n\005G" +
-      "rade\022\010\n\004PASS\020\000\022\010\n\004FAIL\020\0012|\n\rResultServic" +
-      "e\022/\n\024getResultForStudents\022\016.ResultReques" +
-      "t\032\007.Result\022:\n\027createResultForStudents\022\016." +
-      "ResultRequest\032\017.ResultResponseB\027\n\023be.gen" +
-      "erated.resultP\001b\006proto3"
+      "\n\014result.proto\"j\n\rResultRequest\022\022\n\nstude" +
+      "nt_id\030\001 \001(\t\022\025\n\005maths\030\002 \001(\0162\006.Grade\022\023\n\003ar" +
+      "t\030\003 \001(\0162\006.Grade\022\031\n\tchemistry\030\004 \001(\0162\006.Gra" +
+      "de\"\'\n\016ResultResponse\022\025\n\rstudent_grade\030\001 " +
+      "\001(\t\")\n\006Result\022\037\n\006result\030\001 \001(\0132\017.ResultRe" +
+      "sponse*\033\n\005Grade\022\010\n\004PASS\020\000\022\010\n\004FAIL\020\0012\210\001\n\r" +
+      "ResultService\0229\n\024getResultForStudents\022\016." +
+      "ResultRequest\032\017.ResultResponse\"\000\022<\n\027crea" +
+      "teResultForStudents\022\016.ResultRequest\032\017.Re" +
+      "sultResponse\"\000B\027\n\023be.generated.resultP\001b" +
+      "\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -58,18 +59,18 @@ public final class ResultOuterClass {
     internal_static_ResultRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ResultRequest_descriptor,
-        new java.lang.String[] { "StudentId", });
-    internal_static_Result_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Result_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Result_descriptor,
         new java.lang.String[] { "StudentId", "Maths", "Art", "Chemistry", });
     internal_static_ResultResponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_ResultResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ResultResponse_descriptor,
+        new java.lang.String[] { "StudentGrade", });
+    internal_static_Result_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_Result_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Result_descriptor,
         new java.lang.String[] { "Result", });
   }
 

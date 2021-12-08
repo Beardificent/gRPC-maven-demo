@@ -305,7 +305,7 @@ public final class ResultServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return be.generated.result.Result.getDescriptor();
+      return be.generated.result.ResultOuterClass.getDescriptor();
     }
 
     @java.lang.Override

@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class StudentDtoResponse {
     
-private String studentId;
+private String id;
 
 private String name;
 
