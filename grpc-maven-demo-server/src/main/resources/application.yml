@@ -1,7 +1,7 @@
 spring:
   datasource:
-    username: postgres
-    password: changeme
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
     url: jdbc:postgresql://localhost:5432/grpc-demo-db
     driver-class-name: org.postgresql.Driver
   flyway:

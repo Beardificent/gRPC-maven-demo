@@ -18,4 +18,5 @@ public class GrpcClientStudentController {
   public StudentResponse getStudentList() {
     return grpcClientStudentService.getStudentList();
   }
+    
 }
