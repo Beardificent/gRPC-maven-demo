@@ -1,8 +1,6 @@
 package be.moesmedia.grpcmavendemoclient.controllers;
 
 import be.generated.student.StudentResponse;
-import be.moesmedia.grpcmavendemoclient.dtos.ClientStudentRequest;
-import be.moesmedia.grpcmavendemoclient.dtos.ClientStudentResponse;
 import be.moesmedia.grpcmavendemoclient.services.GrpcClientStudentService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +14,7 @@ public class GrpcClientStudentController {
 
   @GetMapping("/student")
   public StudentResponse getStudentList() {
-    return grpcClientStudentService.getStudentList();
+    return grpcClientStudentService.getStudentOverview();
   }
     
 }

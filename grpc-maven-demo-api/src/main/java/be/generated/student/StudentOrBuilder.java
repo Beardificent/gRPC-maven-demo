@@ -8,17 +8,26 @@ public interface StudentOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.StudentResponse student = 1;</code>
-   * @return Whether the student field is set.
+   * <code>repeated .StudentResponse student = 1;</code>
    */
-  boolean hasStudent();
+  java.util.List<be.generated.student.StudentResponse> 
+      getStudentList();
   /**
-   * <code>.StudentResponse student = 1;</code>
-   * @return The student.
+   * <code>repeated .StudentResponse student = 1;</code>
    */
-  be.generated.student.StudentResponse getStudent();
+  be.generated.student.StudentResponse getStudent(int index);
   /**
-   * <code>.StudentResponse student = 1;</code>
+   * <code>repeated .StudentResponse student = 1;</code>
    */
-  be.generated.student.StudentResponseOrBuilder getStudentOrBuilder();
+  int getStudentCount();
+  /**
+   * <code>repeated .StudentResponse student = 1;</code>
+   */
+  java.util.List<? extends be.generated.student.StudentResponseOrBuilder> 
+      getStudentOrBuilderList();
+  /**
+   * <code>repeated .StudentResponse student = 1;</code>
+   */
+  be.generated.student.StudentResponseOrBuilder getStudentOrBuilder(
+      int index);
 }

@@ -81,7 +81,7 @@ public enum Gender
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return be.generated.student.StudentOuterClass.getDescriptor().getEnumTypes().get(1);
+    return be.generated.student.Student.getDescriptor().getEnumTypes().get(1);
   }
 
   private static final Gender[] VALUES = values();

@@ -26,7 +26,7 @@ public class GrpcClientStudentService {
     managedChannel
   );
 
-  public StudentResponse getStudentList() {
+  public StudentResponse getStudentOverview() {
     StudentRequest studentRequest = StudentRequest
       .newBuilder()
       .setName("Fluppe")
@@ -34,7 +34,7 @@ public class GrpcClientStudentService {
       .setGender(Gender.MALE)
       .build();
 
-    StudentResponse studentResponse = studentServiceBlockingStub.getStudentInfo(
+    StudentResponse studentResponse = studentServiceBlockingStub.getStudentOverview(
       studentRequest
     );
 

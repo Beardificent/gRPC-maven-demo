@@ -4,8 +4,10 @@ option java_package = "be.generated.student";
 
 
 service StudentService {
-    rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
+    rpc getStudentOverview(StudentRequest) returns (StudentResponse){};
     rpc createStudent(StudentRequest) returns (StudentResponse){};
+    rpc updateStudent(StudentRequest) returns (StudentResponse){};
+    rpc deleteStudent(StudentRequest) returns (Void){};
 }
 
 message StudentRequest {
@@ -19,15 +21,16 @@ message StudentResponse {
     string student_id = 1;
     string name = 2;
     int32 age = 3;
+
     Gender gender = 4;
     Grade maths = 5;
     Grade art = 6;
     Grade chemistry = 7;
 }
 
- message Student {
-    StudentResponse student = 1;
-}  
+message Void {
+
+}
 
 enum Grade {
     PASS = 0;

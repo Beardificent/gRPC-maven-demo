@@ -1,37 +1,31 @@
 package be.moesmedia.grpcmavendemo.controllers;
 
+import be.generated.student.Student;
 import be.generated.student.StudentRequest;
 import be.generated.student.StudentResponse;
 import be.generated.student.StudentServiceGrpc.StudentServiceImplBase;
+
+
+import be.moesmedia.grpcmavendemo.service.ServerStudentService;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.lognet.springboot.grpc.GRpcService;
 
 @GRpcService
 @RequiredArgsConstructor
-@Slf4j
 public class GrpcServerStudentService extends StudentServiceImplBase {
 
+  private final ServerStudentService serverStudentService;
 
-  public void getStudentInfo(
+
+  @Override
+  public void getStudentOverview(
     StudentRequest request,
     StreamObserver<StudentResponse> responseObserver
   ) {
-
-    StudentResponse student = StudentResponse
-      .newBuilder()
-      .setName(request.getName())
-      .setGender(request.getGender())
-      .setAge(request.getAge())
-      .build();
-
-    log.info("SERVER SIDE     :: GRPC_SERVER_STUDENT_SERVICE has been used");
-    log.info("StudentResponse :: NAME: " + request.getName());
-    log.info("StudentResponse :: AGE: " + request.getAge());
-    log.info("StudentResponse :: GENDER: " + request.getGender());
-
-    responseObserver.onNext(student);
+     // return serverStudentService.getStudentOverview();
+     
+    responseObserver.onNext(serverStudentService.getStudentOverview());
     responseObserver.onCompleted();
   }
 }

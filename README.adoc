@@ -465,9 +465,10 @@ CONS:
 * It's a bit of a hassle to set up especially when you can't figure out what you're doing wrong. learning curve is quite steep if I say so myself. 
 
 
-
-
-
+### Add Flyway for Migrations (will work with hibernate to work with sql)
+### Add Entities and DTOs
+### creating a repository
+### creating a server service layer 
 
 
 

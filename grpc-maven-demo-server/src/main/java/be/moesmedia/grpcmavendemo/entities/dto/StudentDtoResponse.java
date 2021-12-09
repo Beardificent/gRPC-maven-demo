@@ -1,14 +1,13 @@
 package be.moesmedia.grpcmavendemo.entities.dto;
 
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder(toBuilder = true)
-@Getter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 public class StudentDtoResponse {
@@ -21,5 +20,4 @@ private Integer age;
 
 private String gender;
 
-private List<ResultDtoResponse> results;
 }
