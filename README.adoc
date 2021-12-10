@@ -1,34 +1,59 @@
-# gRPC & Protocol Buffers
+= gRPC & Protocol Buffers
 The following was discovered as part of building this project:
 
-## WIP
+== WIP
 
 .Plan of Attack
 ****
-*Add* Next step to connect server to client
 
 *Add* gRpc vs Rest
 
 *Add* gRpc vs RMI
 
-*Add* gRpc gradle dependencies
+*Add* Gradle Project 
 
-*Add* gRpc gradle plugins
+    * gRpc gradle dependencies
 
-*Add* references & documentation (eg LogNet)
+    * gRpc gradle plugins
 
 *GOAL OF PROJECT* Foolproof crud grpc demo, not just send 1 and receive 2. ATM still figuring out how to implement controller, service, repo architecture to create a simple addition list.
+
+*TODO* 
+
+    * Server -> Get Data from DTO/Proto
+
+    * Server -> Implement Services
+
+    * Client -> Add RestController
+
+    * Client -> Add Services to talk to Server
+
+*STACK* Maven
+
+*STACK* Spring Boot
+
+*STACK* Spring Data JPA
+
+//*STACK* Spring WebFlux
+*STACK* PostgreSQL
+
+*STACK* Flyway
+
+*STACK* gRPC
+
+*STACK* Protocol Buffers
+
 
 ****
 
 
-## what is RPC? 
+=== what is RPC? 
 
 Remote Procedure Call, we know that gRPC uses this, but what is it? 
 
 //explain RPC
 
-## What is gRPC?
+=== What is gRPC?
 
 gRPC is a modern framework used to communicate between applications.
 
@@ -40,60 +65,61 @@ USes HTTP2 for its requests so it can allow bidirectionary flow of data. Compare
 It uses protocol buffers (protofiles) as the Interface Definition Language (IDL) and also as Data format.
 Protocol buffers arent only used as data foemat but also as service interface definition. (SID).
 
-API MODES
+==== API MODES
 
-Unary Mode:
+Unary Mode: +
 	Client makes request to server, synchronously waits, and then responds with result.
 
-.Unary 
+.*Unary* 
 [source,java]
 ----
 rpc SayHello(HelloRequest) returns (HelloResponse);
 ----
 
 
-Server Streaming:
+Server Streaming: +
 	Client makes a request to the server with multiple responses expected. (compareable to WebSockets)
 eg. youtube
 
-.Server Streaming
+.*Server Streaming*
 [source,java]
 ----
 rpc ReceiveHellos(HelloRequest) returns (stream HelloResponse);
 ----
 
 
-Client Streaming RPC:
+Client Streaming RPC: +
 	Client makes a lot of requests, open stream of requests,  server response is optional. 
 Eg Instagram (uploading videos, photos, comments)
 
-.Client Streaming
+.*Client Streaming*
 [source,java]
 ----
 rpc SayHelloALot( stream HelloRequest) returns (HelloResponse);
 ----
 
 
-BiDirectional Streaming RPC: 
+BiDirectional Streaming RPC: + 
 	both clients are communicating with each other through an open stream 
 eg. instant messaging
 
-.BiDirectional Streaming
+.*BiDirectional Streaming*
 [source,java]
 ----
 rpc BothSayHello (stream HelloRequest) returns (stream HelloResponse);
 ----
 
 
-## Why do we use gRPC?
+=== Why do we use gRPC?
 
 gRPC is high performance and highly effiicient and can run in any enviroment.  
 
-## How do we use gRPC?
+=== How do we use gRPC?
 
 You start by adding the necessary dependencies & plugins, makes sense, right? 
 
-Which one do we need?  *ff navragen welke overbodig zijn ism Lognet enof ik lognet juist gebruik, plugin vs dependecies*
+Which one do we need? +
+*ff navragen welke overbodig zijn ism Lognet enof ik lognet juist gebruik, plugin vs dependecies*
 
 .*maven dependency*
 [source,java]
@@ -116,8 +142,7 @@ Which one do we need?  *ff navragen welke overbodig zijn ism Lognet enof ik logn
 </dependency>
 ----
 
-lognet dependency makes GRPC integration a bit easier, we can use annotations that take away some boilerplate code
-compile proto file into java files
+*Lognet* dependency makes GRPC integration a bit easier, we can use annotations that take away some boilerplate code
 
 .*maven plugin*
 [source,java]
@@ -154,12 +179,12 @@ compile proto file into java files
 </plugin>
 ----
 
-### GRADLE  DEPENDENCIES EN PLUGINS KOMT LATER, WERKT NIET DEFTIG
+*GRADLE  DEPENDENCIES EN PLUGINS KOMT LATER, WERKT NIET DEFTIG*
 
 
 
-you're going to want to create a proto file, ideally located in the *resources* folder (according to what I know). 
-the file name can be named flupke.proto, the important part to take away from this is the file extension *.proto*. All your protofiles will need to have this.
+You're going to want to create a proto file, ideally located in the `resources` folder (according to what I know). 
+the file name can be named flupke.proto, the important part to take away from this is the file extension `.proto`. All your protofiles will need to have this.
 
 .*basic protofile example*
 [source,java]
@@ -209,7 +234,7 @@ A service contains:app-name:
  
 the methods to perform, pretty easy syntax (look at API modes to see the other modes' syntax again). 
 
-Messages act like an entity/dto/object definition *will check protocol buffer docs*
+Messages act like an entity/dto/object definition +
 
 and that's pretty much it for the protofile.
 
@@ -223,14 +248,15 @@ After the protofile you will want to create a Service file (in your server appli
 
 In your client application you will need to  build a ManagedChannel that'll communicate with your server.
 
-To  build your protofiles you can run *mvn clean install* and it should generate some files for you in the designated folder (java.package that you specified)
-## Setting up your multi module application
+To  build your protofiles you can run `mvn clean install` and it should generate some files for you in the designated folder (java.package that you specified)
+
+==== Setting up your multi module application
 
 gRPC communication happens between a server application and a client side application, and can use a shared module aswell (lets say an API) how do we set this up in one nice and clean project? Spring Booyt lets you use multi modules projects, which we'll set up to help us with this project. 
 
 First off all, go to start.spring.io and generate a project (I created a maven project because most of the gRPC tutorials were in maven, so to make it easy; create a maven project), it doesn't need any real dependecies but choose whichever you like for your demo project. This will be our parent.
 
-The generated project will act as your *ROOT/PARENT* project which will have 3 sub modules; A client side module/application, a server application/module and an APi module. You can create these witjh start.spring.io aswell. and then just copy/paste them in the parent project.
+The generated project will act as your `ROOT/PARENT` project which will have 3 sub modules; A client side module/application, a server application/module and an APi module. You can create these witjh start.spring.io aswell. and then just copy/paste them in the parent project.
 
 
 .*project tree structure example*
@@ -321,7 +347,10 @@ Well, they need a reference to the parent module and we can achieve this by simp
 </parent>
 ----	
 
+[sidebar]
+--
 As for the shared api module which only contains data from the proto file, we can easily add this as a dependency to the modules that require it.
+--
 
 .*api dependency example for submodules*
 [source,java]
@@ -333,18 +362,19 @@ As for the shared api module which only contains data from the proto file, we ca
 </dependency>
 ----	
 
-....
-This will prevent the "PACKAGE DOES NOT EXIST" error, if you haven't encountered this error while setting up an gRPC service, you're doing just fine!
-....
+[sidebar]
+--
+This will make your shared interface useable for all your included projects (as dependencies tend to do) and will prevent the PACKAGE DOES NOT EXIST error, if you haven't encountered this error while setting up the gRPC service, you're doing just fine!
 
+--
 
 ### Initial server to client connnection.
 
 .*server side GrpcService example/implementation class for protoservice*
 [source,java]
 ----
-@GRpcService	-- comes from LogNet
-@Slf4j			-- comes from Lombok		
+@GRpcService
+@Slf4j		
 public class StudentGrpcService extends StudentServiceImplBase {
 
   public void getStudentInfo(
@@ -370,8 +400,8 @@ public class StudentGrpcService extends StudentServiceImplBase {
 .*client side application example*
 [source,java]
 ----
-@GRpcService	--comes from LogNet
-@Slf4j			--comes from Lombok
+@GRpcService
+@Slf4j
 public class GrpcClientStudentService {
 
   public StudentResponse getStudentList() {
@@ -411,8 +441,8 @@ Run your server GrpcServerApplication and run the GrpcClientApplication on separ
 
 Connection should be up and running with "Fluppe" as student response name.
 
-### Setting up a database with docker.
-to be able to save data, we need a database connection. With the help of docker we can easily do this by adding a *docker-compose.yml* file.  the file's content is relatively easy to read
+==== Setting up a database with docker.
+To be able to work with persisting data, we need a database connection. With the help of docker we can easily do this by adding a `docker-compose.yml` file.  The file's contents are relatively easy to read
 
 .*docker-compose.yml example*
 [source,yaml]
@@ -430,7 +460,7 @@ services:
       - 5432:5432
 ----	
 
-You'd also need to add an *application.yml*  file to your server's resources folder with the following content (to match your *docker-compose* file).
+You'd also need to add an `application.yml`  file to your server's resources folder with the following content (to match your *docker-compose* file).
 
 .*application.yml example*
 [source,yaml]
@@ -447,12 +477,14 @@ spring:
 
 ----	
 
-and then you run it with the command: *docker-compose up*. Be sure to have docker on your system. if you have docker desktop, you can even check the status of your docker container and the database it created. 
+And then you run it with the command: `docker-compose up -d`. Be sure to have docker on your system. if you have docker desktop, you can even check the status of your docker container and the database it created. 
 
-Now we're ready to create tables and add data.
+Now we're ready to create tables and add data. How do we do this? I used Flyway which works with Hibernate to manage sql.
+
+##### Add Flyway for Migrations (will work with hibernate to work with sql)
 
 
-## PROS & CONS of gRPC?
+#### PROS & CONS of gRPC?
 
 
 PROS: 
@@ -465,15 +497,28 @@ CONS:
 * It's a bit of a hassle to set up especially when you can't figure out what you're doing wrong. learning curve is quite steep if I say so myself. 
 
 
-### Add Flyway for Migrations (will work with hibernate to work with sql)
-### Add Entities and DTOs
-### creating a repository
-### creating a server service layer 
+##### Add Entities and DTOs
+##### Creating a *Server* repository
+##### Creating a *Server* service layer
+##### Creating a *Client* Controller layer
+##### Creating a *Client* service layer
 
 
 
+[cols="1*",options="header"]
+|===
+^|Technologies used
+|Maven 
+|Spring Boot
+|Spring Data JPA 
+|PostgreSQL
+|Flyway
+|gRPC
+|Protocol Buffers 
+|===
 
-### Reference Documentation
+
+#### Reference Documentation
 For further reference, please consider the following sections:
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
