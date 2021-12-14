@@ -2,10 +2,10 @@ version: "3"
 
 services:
   postgres:
-    image: postgres:14
+    image: postgres:13
     environment:
-      POSTGRES_PASSWORD: changeme
-      POSTGRES_USER: postgres
       POSTGRES_DB: grpc-demo-db
+      POSTGRES_PASSWORD: changeme
+      POSTGRES_USER: spring-db-user
     ports:
       - 5432:5432

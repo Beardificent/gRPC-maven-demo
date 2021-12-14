@@ -1,6 +1,6 @@
 package be.moesmedia.grpcmavendemoclient.dtos;
 
-import be.generated.result.Grade;
+import be.generated.grade.Grade;
 import lombok.Data;
 
 @Data

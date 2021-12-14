@@ -15,20 +15,25 @@ public final class StudentOuterClass {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_StudentRequest_descriptor;
+    internal_static_resources_StudentRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_StudentRequest_fieldAccessorTable;
+      internal_static_resources_StudentRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_StudentResponse_descriptor;
+    internal_static_resources_StudentResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_StudentResponse_fieldAccessorTable;
+      internal_static_resources_StudentResponse_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Student_descriptor;
+    internal_static_resources_Student_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Student_fieldAccessorTable;
+      internal_static_resources_Student_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_resources_Void_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_resources_Void_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -38,43 +43,58 @@ public final class StudentOuterClass {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rstudent.proto\"X\n\016StudentRequest\022\022\n\nstu" +
-      "dent_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013\n\003age\030\003 \001(\005" +
-      "\022\027\n\006gender\030\004 \001(\0162\007.Gender\"\240\001\n\017StudentRes" +
-      "ponse\022\022\n\nstudent_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022" +
-      "\013\n\003age\030\003 \001(\005\022\027\n\006gender\030\004 \001(\0162\007.Gender\022\025\n" +
-      "\005maths\030\005 \001(\0162\006.Grade\022\023\n\003art\030\006 \001(\0162\006.Grad" +
-      "e\022\031\n\tchemistry\030\007 \001(\0162\006.Grade\",\n\007Student\022" +
-      "!\n\007student\030\001 \003(\0132\020.StudentResponse*\033\n\005Gr" +
-      "ade\022\010\n\004PASS\020\000\022\010\n\004FAIL\020\001*\036\n\006Gender\022\010\n\004MAL" +
-      "E\020\000\022\n\n\006FEMALE\020\0012\201\001\n\016StudentService\0229\n\022ge" +
-      "tStudentOverview\022\017.StudentRequest\032\020.Stud" +
-      "entResponse\"\000\0224\n\rcreateStudent\022\017.Student" +
-      "Request\032\020.StudentResponse\"\000B\030\n\024be.genera" +
-      "ted.studentP\001b\006proto3"
+      "\n\rstudent.proto\022\tresources\032\023common/gende" +
+      "r.proto\032\014result.proto\"\203\001\n\016StudentRequest" +
+      "\022\022\n\nstudent_id\030\001 \001(\t\022\014\n\004name\030\002 \001(\t\022\013\n\003ag" +
+      "e\030\003 \001(\005\022\036\n\006gender\030\004 \001(\0162\016.common.Gender\022" +
+      "\"\n\007results\030\005 \001(\0132\021.resources.Result\"`\n\017S" +
+      "tudentResponse\022\022\n\nstudent_id\030\001 \001(\t\022\014\n\004na" +
+      "me\030\002 \001(\t\022\013\n\003age\030\003 \001(\005\022\036\n\006gender\030\004 \001(\0162\016." +
+      "common.Gender\"Z\n\007Student\022+\n\007student\030\001 \001(" +
+      "\0132\032.resources.StudentResponse\022\"\n\007results" +
+      "\030\002 \001(\0132\021.resources.Result\"\006\n\004Void2\252\002\n\016St" +
+      "udentService\022E\n\022getStudentOverview\022\031.res" +
+      "ources.StudentRequest\032\022.resources.Studen" +
+      "t\"\000\022H\n\rcreateStudent\022\031.resources.Student" +
+      "Request\032\032.resources.StudentResponse\"\000\022H\n" +
+      "\rupdateStudent\022\031.resources.StudentReques" +
+      "t\032\032.resources.StudentResponse\"\000\022=\n\rdelet" +
+      "eStudent\022\031.resources.StudentRequest\032\017.re" +
+      "sources.Void\"\000B\030\n\024be.generated.studentP\001" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          be.generated.gender.GenderOuterClass.getDescriptor(),
+          be.generated.result.ResultOuterClass.getDescriptor(),
         });
-    internal_static_StudentRequest_descriptor =
+    internal_static_resources_StudentRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_StudentRequest_fieldAccessorTable = new
+    internal_static_resources_StudentRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_StudentRequest_descriptor,
-        new java.lang.String[] { "StudentId", "Name", "Age", "Gender", });
-    internal_static_StudentResponse_descriptor =
+        internal_static_resources_StudentRequest_descriptor,
+        new java.lang.String[] { "StudentId", "Name", "Age", "Gender", "Results", });
+    internal_static_resources_StudentResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_StudentResponse_fieldAccessorTable = new
+    internal_static_resources_StudentResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_StudentResponse_descriptor,
-        new java.lang.String[] { "StudentId", "Name", "Age", "Gender", "Maths", "Art", "Chemistry", });
-    internal_static_Student_descriptor =
+        internal_static_resources_StudentResponse_descriptor,
+        new java.lang.String[] { "StudentId", "Name", "Age", "Gender", });
+    internal_static_resources_Student_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_Student_fieldAccessorTable = new
+    internal_static_resources_Student_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Student_descriptor,
-        new java.lang.String[] { "Student", });
+        internal_static_resources_Student_descriptor,
+        new java.lang.String[] { "Student", "Results", });
+    internal_static_resources_Void_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_resources_Void_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_resources_Void_descriptor,
+        new java.lang.String[] { });
+    be.generated.gender.GenderOuterClass.getDescriptor();
+    be.generated.result.ResultOuterClass.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

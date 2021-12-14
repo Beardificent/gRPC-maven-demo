@@ -2,7 +2,7 @@ package be.moesmedia.grpcmavendemoclient.dtos;
 
 import java.util.List;
 
-import be.generated.student.Gender;
+import be.generated.gender.Gender;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;

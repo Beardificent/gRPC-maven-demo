@@ -4,6 +4,6 @@
 package be.generated.student;
 
 public interface VoidOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Void)
+    // @@protoc_insertion_point(interface_extends:resources.Void)
     com.google.protobuf.MessageOrBuilder {
 }

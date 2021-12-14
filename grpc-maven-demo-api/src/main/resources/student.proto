@@ -1,10 +1,16 @@
 syntax = "proto3";
+
+package resources;
+
+import "common/gender.proto";
+import "result.proto";
+
 option java_multiple_files = true;
 option java_package = "be.generated.student";
 
 
 service StudentService {
-    rpc getStudentOverview(StudentRequest) returns (StudentResponse){};
+    rpc getStudentOverview(StudentRequest) returns (Student){};
     rpc createStudent(StudentRequest) returns (StudentResponse){};
     rpc updateStudent(StudentRequest) returns (StudentResponse){};
     rpc deleteStudent(StudentRequest) returns (Void){};
@@ -14,30 +20,23 @@ message StudentRequest {
     string student_id = 1;
     string name = 2;
     int32 age = 3;
-    Gender gender = 4;
+    common.Gender gender = 4;
+    Result results = 5;
 }
 
 message StudentResponse {
     string student_id = 1;
     string name = 2;
     int32 age = 3;
+    common.Gender gender = 4;
 
-    Gender gender = 4;
-    Grade maths = 5;
-    Grade art = 6;
-    Grade chemistry = 7;
+}
+
+message Student {
+    StudentResponse student = 1;
+    Result results = 2;
 }
 
 message Void {
 
-}
-
-enum Grade {
-    PASS = 0;
-    FAIL = 1;
-}
-
-enum Gender {
-    MALE = 0;
-    FEMALE = 1;
 }

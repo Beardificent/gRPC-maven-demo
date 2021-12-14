@@ -118,8 +118,7 @@ gRPC is high performance and highly effiicient and can run in any enviroment.
 
 You start by adding the necessary dependencies & plugins, makes sense, right? 
 
-Which one do we need? +
-*ff navragen welke overbodig zijn ism Lognet enof ik lognet juist gebruik, plugin vs dependecies*
+Which ones do we need? +
 
 .*maven dependency*
 [source,java]
@@ -142,7 +141,8 @@ Which one do we need? +
 </dependency>
 ----
 
-*Lognet* dependency makes GRPC integration a bit easier, we can use annotations that take away some boilerplate code
+[sidebar]
+*Lognet* dependency makes GRPC integration a bit easier, we can use annotations that take away some code (like creating a server file)
 
 .*maven plugin*
 [source,java]
@@ -181,74 +181,6 @@ Which one do we need? +
 
 *GRADLE  DEPENDENCIES EN PLUGINS KOMT LATER, WERKT NIET DEFTIG*
 
-
-
-You're going to want to create a proto file, ideally located in the `resources` folder (according to what I know). 
-the file name can be named flupke.proto, the important part to take away from this is the file extension `.proto`. All your protofiles will need to have this.
-
-.*basic protofile example*
-[source,java]
-----
-syntax = "proto3";
-option java_multiple_files = true;
-option java_package = "be.generated.student";
-
-
-service StudentService {
-    rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
-    rpc createStudent(StudentRequest) returns (StudentResponse){};
-}
-
-message StudentRequest {
-    string student_id = 1;
-    string name = 2;
-    int32 age = 3;
-    Gender gender = 4;
-}
-
-message StudentResponse {
-    string student_id = 1;
-    string name = 2;
-    int32 age = 3;
-    Gender gender = 4;
-    Grade maths = 5;
-    Grade art = 6;
-    Grade chemistry = 7;
-}
-
-
-enum Grade {
-    PASS = 0;
-    FAIL = 1;
-}
-
-enum Gender {
-    MALE = 0;
-    FEMALE = 1;
-}
-----
-
-Every protofile starts by declaring it's syntax, which would be proto3 at the moment. Below that you should declare the java_package name (it will put the generated codes into that package).
-
-A service contains:app-name: 
- 
-the methods to perform, pretty easy syntax (look at API modes to see the other modes' syntax again). 
-
-Messages act like an entity/dto/object definition +
-
-and that's pretty much it for the protofile.
-
-Key takeaways: 
-
-* Services are equal to methods/functions, whatever you're used to calling them. They  take an input and return an output according to one of the rpo connection modes.
-
-* Messages define the methods, how they look like and what they contain, much like a data object.
-
-After the protofile you will want to create a Service file (in your server application) that will do something, execute something. Your logic goes here.
-
-In your client application you will need to  build a ManagedChannel that'll communicate with your server.
-
-To  build your protofiles you can run `mvn clean install` and it should generate some files for you in the designated folder (java.package that you specified)
 
 ==== Setting up your multi module application
 
@@ -368,7 +300,76 @@ This will make your shared interface useable for all your included projects (as 
 
 --
 
-### Initial server to client connnection.
+==== Establishing a protocol buffer
+
+You're going to want to create a proto file, ideally located in the `resources` folder of your project/ or in your shared interface project(according to what I know). 
+The file name can be named `flupke.proto`, the important part to take away from this is the file extension `.proto`. All your protofiles will need to have this. It would be handy to name your protofile according to what is in it. (eg `Person.proto` will contain messages and services revolving around the Person object.)
+
+.*basic protofile example*
+[source,java]
+----
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "be.generated.student";
+
+
+service StudentService {
+    rpc getStudentInfo(StudentRequest) returns (StudentResponse){};
+    rpc createStudent(StudentRequest) returns (StudentResponse){};
+}
+
+message StudentRequest {
+    string student_id = 1;
+    string name = 2;
+    int32 age = 3;
+    Gender gender = 4;
+}
+
+message StudentResponse {
+    string student_id = 1;
+    string name = 2;
+    int32 age = 3;
+    Gender gender = 4;
+    Grade maths = 5;
+    Grade art = 6;
+    Grade chemistry = 7;
+}
+
+
+enum Grade {
+    PASS = 0;
+    FAIL = 1;
+}
+
+enum Gender {
+    MALE = 0;
+    FEMALE = 1;
+}
+----
+
+Every protofile starts by declaring it's syntax, which would be `proto3` at the moment. Below that you should declare the `java_package` name (it will put the generated codes into that package).
+
+A Proto Service contains:
+ 
+The methods to perform, pretty easy syntax (look at API modes to see the other modes' syntax again). +
+
+Proto Messages act like an entity/dto/object definition +
+
+And that's pretty much it for the protofile.
+
+*Key takeaways*: 
+
+* Services are equal to methods/functions, whatever you're used to calling them. They  take an input and return an output according to one of the rpo connection modes.
+
+* Messages define the methods, how they look like and what they contain, much like a data object.
+
+To  build your protofiles you can run `mvn clean install` and it should generate some files for you in the designated folder (java.package that you specified)
+
+After the protofile you will want to create a Service file (in your server application) that will do something, execute something. Your logic goes here. will put examples below.
+
+In your client application you will need to  build a ManagedChannel that'll communicate with your server.
+
+==== Initial server to client connnection.
 
 .*server side GrpcService example/implementation class for protoservice*
 [source,java]
@@ -498,10 +499,19 @@ CONS:
 
 
 ##### Add Entities and DTOs
+-> To add
+
 ##### Creating a *Server* repository
+-> To add
+
 ##### Creating a *Server* service layer
+-> To add
+
 ##### Creating a *Client* Controller layer
+-> To add
+
 ##### Creating a *Client* service layer
+-> To add
 
 
 

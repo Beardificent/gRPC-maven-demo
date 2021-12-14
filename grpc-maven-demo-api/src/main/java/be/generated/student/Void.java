@@ -4,11 +4,11 @@
 package be.generated.student;
 
 /**
- * Protobuf type {@code Void}
+ * Protobuf type {@code resources.Void}
  */
 public  final class Void extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Void)
+    // @@protoc_insertion_point(message_implements:resources.Void)
     VoidOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Void.newBuilder() to construct.
@@ -69,13 +69,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.student.Student.internal_static_Void_descriptor;
+    return be.generated.student.StudentOuterClass.internal_static_resources_Void_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.student.Student.internal_static_Void_fieldAccessorTable
+    return be.generated.student.StudentOuterClass.internal_static_resources_Void_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.student.Void.class, be.generated.student.Void.Builder.class);
   }
@@ -225,21 +225,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Void}
+   * Protobuf type {@code resources.Void}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Void)
+      // @@protoc_insertion_point(builder_implements:resources.Void)
       be.generated.student.VoidOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.student.Student.internal_static_Void_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_resources_Void_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.student.Student.internal_static_Void_fieldAccessorTable
+      return be.generated.student.StudentOuterClass.internal_static_resources_Void_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.student.Void.class, be.generated.student.Void.Builder.class);
     }
@@ -268,7 +268,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.student.Student.internal_static_Void_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_resources_Void_descriptor;
     }
 
     @java.lang.Override
@@ -377,10 +377,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Void)
+    // @@protoc_insertion_point(builder_scope:resources.Void)
   }
 
-  // @@protoc_insertion_point(class_scope:Void)
+  // @@protoc_insertion_point(class_scope:resources.Void)
   private static final be.generated.student.Void DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new be.generated.student.Void();

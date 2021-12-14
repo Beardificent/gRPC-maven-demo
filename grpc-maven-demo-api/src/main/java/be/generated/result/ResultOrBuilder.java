@@ -4,21 +4,63 @@
 package be.generated.result;
 
 public interface ResultOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Result)
+    // @@protoc_insertion_point(interface_extends:resources.Result)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>.ResultResponse result = 1;</code>
-   * @return Whether the result field is set.
+   * <code>string id = 1;</code>
+   * @return The id.
    */
-  boolean hasResult();
+  java.lang.String getId();
   /**
-   * <code>.ResultResponse result = 1;</code>
-   * @return The result.
+   * <code>string id = 1;</code>
+   * @return The bytes for id.
    */
-  be.generated.result.ResultResponse getResult();
+  com.google.protobuf.ByteString
+      getIdBytes();
+
   /**
-   * <code>.ResultResponse result = 1;</code>
+   * <code>.common.Grade maths = 2;</code>
+   * @return The enum numeric value on the wire for maths.
    */
-  be.generated.result.ResultResponseOrBuilder getResultOrBuilder();
+  int getMathsValue();
+  /**
+   * <code>.common.Grade maths = 2;</code>
+   * @return The maths.
+   */
+  be.generated.grade.Grade getMaths();
+
+  /**
+   * <code>.common.Grade art = 3;</code>
+   * @return The enum numeric value on the wire for art.
+   */
+  int getArtValue();
+  /**
+   * <code>.common.Grade art = 3;</code>
+   * @return The art.
+   */
+  be.generated.grade.Grade getArt();
+
+  /**
+   * <code>.common.Grade chemistry = 4;</code>
+   * @return The enum numeric value on the wire for chemistry.
+   */
+  int getChemistryValue();
+  /**
+   * <code>.common.Grade chemistry = 4;</code>
+   * @return The chemistry.
+   */
+  be.generated.grade.Grade getChemistry();
+
+  /**
+   * <code>string student_id = 5;</code>
+   * @return The studentId.
+   */
+  java.lang.String getStudentId();
+  /**
+   * <code>string student_id = 5;</code>
+   * @return The bytes for studentId.
+   */
+  com.google.protobuf.ByteString
+      getStudentIdBytes();
 }

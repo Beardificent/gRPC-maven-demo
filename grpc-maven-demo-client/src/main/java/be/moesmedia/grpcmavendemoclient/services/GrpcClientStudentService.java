@@ -1,11 +1,10 @@
 package be.moesmedia.grpcmavendemoclient.services;
 
-import be.generated.student.Gender;
+import be.generated.gender.Gender;
+import be.generated.student.Student;
 import be.generated.student.StudentRequest;
-import be.generated.student.StudentResponse;
 import be.generated.student.StudentServiceGrpc;
 import be.generated.student.StudentServiceGrpc.StudentServiceBlockingStub;
-import be.moesmedia.grpcmavendemoclient.dtos.ClientStudentRequest;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import lombok.AllArgsConstructor;
@@ -26,7 +25,7 @@ public class GrpcClientStudentService {
     managedChannel
   );
 
-  public StudentResponse getStudentOverview() {
+  public Student getStudentOverview() {
     StudentRequest studentRequest = StudentRequest
       .newBuilder()
       .setName("Fluppe")
@@ -34,14 +33,14 @@ public class GrpcClientStudentService {
       .setGender(Gender.MALE)
       .build();
 
-    StudentResponse studentResponse = studentServiceBlockingStub.getStudentOverview(
+    Student studentResponse = studentServiceBlockingStub.getStudentOverview(
       studentRequest
     );
 
     log.info("Received student response");
-    log.info("name: " + studentResponse.getName());
-    log.info("age: " + studentResponse.getAge());
-    log.info("gender: " + studentResponse.getGender());
+    log.info("name: " + studentResponse.getStudent().getName());
+    log.info("age: " + studentResponse.getStudent().getAge());
+    log.info("gender: " + studentResponse.getStudent().getGender());
 
     managedChannel.shutdown();
     log.info("CLIENT SIDE ::  GRPC_CLIENT_STUDENT_SERVICE has been used");

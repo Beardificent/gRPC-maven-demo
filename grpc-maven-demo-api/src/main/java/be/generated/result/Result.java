@@ -4,11 +4,11 @@
 package be.generated.result;
 
 /**
- * Protobuf type {@code Result}
+ * Protobuf type {@code resources.Result}
  */
 public  final class Result extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:Result)
+    // @@protoc_insertion_point(message_implements:resources.Result)
     ResultOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use Result.newBuilder() to construct.
@@ -16,6 +16,11 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Result() {
+    id_ = "";
+    maths_ = 0;
+    art_ = 0;
+    chemistry_ = 0;
+    studentId_ = "";
   }
 
   @java.lang.Override
@@ -49,16 +54,33 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            be.generated.result.ResultResponse.Builder subBuilder = null;
-            if (result_ != null) {
-              subBuilder = result_.toBuilder();
-            }
-            result_ = input.readMessage(be.generated.result.ResultResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(result_);
-              result_ = subBuilder.buildPartial();
-            }
+            java.lang.String s = input.readStringRequireUtf8();
 
+            id_ = s;
+            break;
+          }
+          case 16: {
+            int rawValue = input.readEnum();
+
+            maths_ = rawValue;
+            break;
+          }
+          case 24: {
+            int rawValue = input.readEnum();
+
+            art_ = rawValue;
+            break;
+          }
+          case 32: {
+            int rawValue = input.readEnum();
+
+            chemistry_ = rawValue;
+            break;
+          }
+          case 42: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            studentId_ = s;
             break;
           }
           default: {
@@ -82,38 +104,144 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.result.ResultOuterClass.internal_static_Result_descriptor;
+    return be.generated.result.ResultOuterClass.internal_static_resources_Result_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.result.ResultOuterClass.internal_static_Result_fieldAccessorTable
+    return be.generated.result.ResultOuterClass.internal_static_resources_Result_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.result.Result.class, be.generated.result.Result.Builder.class);
   }
 
-  public static final int RESULT_FIELD_NUMBER = 1;
-  private be.generated.result.ResultResponse result_;
+  public static final int ID_FIELD_NUMBER = 1;
+  private volatile java.lang.Object id_;
   /**
-   * <code>.ResultResponse result = 1;</code>
-   * @return Whether the result field is set.
+   * <code>string id = 1;</code>
+   * @return The id.
    */
-  public boolean hasResult() {
-    return result_ != null;
+  public java.lang.String getId() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      id_ = s;
+      return s;
+    }
   }
   /**
-   * <code>.ResultResponse result = 1;</code>
-   * @return The result.
+   * <code>string id = 1;</code>
+   * @return The bytes for id.
    */
-  public be.generated.result.ResultResponse getResult() {
-    return result_ == null ? be.generated.result.ResultResponse.getDefaultInstance() : result_;
+  public com.google.protobuf.ByteString
+      getIdBytes() {
+    java.lang.Object ref = id_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      id_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int MATHS_FIELD_NUMBER = 2;
+  private int maths_;
+  /**
+   * <code>.common.Grade maths = 2;</code>
+   * @return The enum numeric value on the wire for maths.
+   */
+  public int getMathsValue() {
+    return maths_;
   }
   /**
-   * <code>.ResultResponse result = 1;</code>
+   * <code>.common.Grade maths = 2;</code>
+   * @return The maths.
    */
-  public be.generated.result.ResultResponseOrBuilder getResultOrBuilder() {
-    return getResult();
+  public be.generated.grade.Grade getMaths() {
+    @SuppressWarnings("deprecation")
+    be.generated.grade.Grade result = be.generated.grade.Grade.valueOf(maths_);
+    return result == null ? be.generated.grade.Grade.UNRECOGNIZED : result;
+  }
+
+  public static final int ART_FIELD_NUMBER = 3;
+  private int art_;
+  /**
+   * <code>.common.Grade art = 3;</code>
+   * @return The enum numeric value on the wire for art.
+   */
+  public int getArtValue() {
+    return art_;
+  }
+  /**
+   * <code>.common.Grade art = 3;</code>
+   * @return The art.
+   */
+  public be.generated.grade.Grade getArt() {
+    @SuppressWarnings("deprecation")
+    be.generated.grade.Grade result = be.generated.grade.Grade.valueOf(art_);
+    return result == null ? be.generated.grade.Grade.UNRECOGNIZED : result;
+  }
+
+  public static final int CHEMISTRY_FIELD_NUMBER = 4;
+  private int chemistry_;
+  /**
+   * <code>.common.Grade chemistry = 4;</code>
+   * @return The enum numeric value on the wire for chemistry.
+   */
+  public int getChemistryValue() {
+    return chemistry_;
+  }
+  /**
+   * <code>.common.Grade chemistry = 4;</code>
+   * @return The chemistry.
+   */
+  public be.generated.grade.Grade getChemistry() {
+    @SuppressWarnings("deprecation")
+    be.generated.grade.Grade result = be.generated.grade.Grade.valueOf(chemistry_);
+    return result == null ? be.generated.grade.Grade.UNRECOGNIZED : result;
+  }
+
+  public static final int STUDENT_ID_FIELD_NUMBER = 5;
+  private volatile java.lang.Object studentId_;
+  /**
+   * <code>string student_id = 5;</code>
+   * @return The studentId.
+   */
+  public java.lang.String getStudentId() {
+    java.lang.Object ref = studentId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      studentId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string student_id = 5;</code>
+   * @return The bytes for studentId.
+   */
+  public com.google.protobuf.ByteString
+      getStudentIdBytes() {
+    java.lang.Object ref = studentId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      studentId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -130,8 +258,20 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (result_ != null) {
-      output.writeMessage(1, getResult());
+    if (!getIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+    }
+    if (maths_ != be.generated.grade.Grade.PASS.getNumber()) {
+      output.writeEnum(2, maths_);
+    }
+    if (art_ != be.generated.grade.Grade.PASS.getNumber()) {
+      output.writeEnum(3, art_);
+    }
+    if (chemistry_ != be.generated.grade.Grade.PASS.getNumber()) {
+      output.writeEnum(4, chemistry_);
+    }
+    if (!getStudentIdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, studentId_);
     }
     unknownFields.writeTo(output);
   }
@@ -142,9 +282,23 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (result_ != null) {
+    if (!getIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+    }
+    if (maths_ != be.generated.grade.Grade.PASS.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
-        .computeMessageSize(1, getResult());
+        .computeEnumSize(2, maths_);
+    }
+    if (art_ != be.generated.grade.Grade.PASS.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, art_);
+    }
+    if (chemistry_ != be.generated.grade.Grade.PASS.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, chemistry_);
+    }
+    if (!getStudentIdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, studentId_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -161,11 +315,13 @@ private static final long serialVersionUID = 0L;
     }
     be.generated.result.Result other = (be.generated.result.Result) obj;
 
-    if (hasResult() != other.hasResult()) return false;
-    if (hasResult()) {
-      if (!getResult()
-          .equals(other.getResult())) return false;
-    }
+    if (!getId()
+        .equals(other.getId())) return false;
+    if (maths_ != other.maths_) return false;
+    if (art_ != other.art_) return false;
+    if (chemistry_ != other.chemistry_) return false;
+    if (!getStudentId()
+        .equals(other.getStudentId())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -177,10 +333,16 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    if (hasResult()) {
-      hash = (37 * hash) + RESULT_FIELD_NUMBER;
-      hash = (53 * hash) + getResult().hashCode();
-    }
+    hash = (37 * hash) + ID_FIELD_NUMBER;
+    hash = (53 * hash) + getId().hashCode();
+    hash = (37 * hash) + MATHS_FIELD_NUMBER;
+    hash = (53 * hash) + maths_;
+    hash = (37 * hash) + ART_FIELD_NUMBER;
+    hash = (53 * hash) + art_;
+    hash = (37 * hash) + CHEMISTRY_FIELD_NUMBER;
+    hash = (53 * hash) + chemistry_;
+    hash = (37 * hash) + STUDENT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getStudentId().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -277,21 +439,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code Result}
+   * Protobuf type {@code resources.Result}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:Result)
+      // @@protoc_insertion_point(builder_implements:resources.Result)
       be.generated.result.ResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.result.ResultOuterClass.internal_static_Result_descriptor;
+      return be.generated.result.ResultOuterClass.internal_static_resources_Result_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.result.ResultOuterClass.internal_static_Result_fieldAccessorTable
+      return be.generated.result.ResultOuterClass.internal_static_resources_Result_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.result.Result.class, be.generated.result.Result.Builder.class);
     }
@@ -314,19 +476,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (resultBuilder_ == null) {
-        result_ = null;
-      } else {
-        result_ = null;
-        resultBuilder_ = null;
-      }
+      id_ = "";
+
+      maths_ = 0;
+
+      art_ = 0;
+
+      chemistry_ = 0;
+
+      studentId_ = "";
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.result.ResultOuterClass.internal_static_Result_descriptor;
+      return be.generated.result.ResultOuterClass.internal_static_resources_Result_descriptor;
     }
 
     @java.lang.Override
@@ -346,11 +512,11 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public be.generated.result.Result buildPartial() {
       be.generated.result.Result result = new be.generated.result.Result(this);
-      if (resultBuilder_ == null) {
-        result.result_ = result_;
-      } else {
-        result.result_ = resultBuilder_.build();
-      }
+      result.id_ = id_;
+      result.maths_ = maths_;
+      result.art_ = art_;
+      result.chemistry_ = chemistry_;
+      result.studentId_ = studentId_;
       onBuilt();
       return result;
     }
@@ -399,8 +565,22 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(be.generated.result.Result other) {
       if (other == be.generated.result.Result.getDefaultInstance()) return this;
-      if (other.hasResult()) {
-        mergeResult(other.getResult());
+      if (!other.getId().isEmpty()) {
+        id_ = other.id_;
+        onChanged();
+      }
+      if (other.maths_ != 0) {
+        setMathsValue(other.getMathsValue());
+      }
+      if (other.art_ != 0) {
+        setArtValue(other.getArtValue());
+      }
+      if (other.chemistry_ != 0) {
+        setChemistryValue(other.getChemistryValue());
+      }
+      if (!other.getStudentId().isEmpty()) {
+        studentId_ = other.studentId_;
+        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -431,123 +611,312 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private be.generated.result.ResultResponse result_;
-    private com.google.protobuf.SingleFieldBuilderV3<
-        be.generated.result.ResultResponse, be.generated.result.ResultResponse.Builder, be.generated.result.ResultResponseOrBuilder> resultBuilder_;
+    private java.lang.Object id_ = "";
     /**
-     * <code>.ResultResponse result = 1;</code>
-     * @return Whether the result field is set.
+     * <code>string id = 1;</code>
+     * @return The id.
      */
-    public boolean hasResult() {
-      return resultBuilder_ != null || result_ != null;
-    }
-    /**
-     * <code>.ResultResponse result = 1;</code>
-     * @return The result.
-     */
-    public be.generated.result.ResultResponse getResult() {
-      if (resultBuilder_ == null) {
-        return result_ == null ? be.generated.result.ResultResponse.getDefaultInstance() : result_;
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
       } else {
-        return resultBuilder_.getMessage();
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.ResultResponse result = 1;</code>
+     * <code>string id = 1;</code>
+     * @return The bytes for id.
      */
-    public Builder setResult(be.generated.result.ResultResponse value) {
-      if (resultBuilder_ == null) {
-        if (value == null) {
-          throw new NullPointerException();
-        }
-        result_ = value;
-        onChanged();
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
       } else {
-        resultBuilder_.setMessage(value);
+        return (com.google.protobuf.ByteString) ref;
       }
-
-      return this;
     }
     /**
-     * <code>.ResultResponse result = 1;</code>
+     * <code>string id = 1;</code>
+     * @param value The id to set.
+     * @return This builder for chaining.
      */
-    public Builder setResult(
-        be.generated.result.ResultResponse.Builder builderForValue) {
-      if (resultBuilder_ == null) {
-        result_ = builderForValue.build();
-        onChanged();
-      } else {
-        resultBuilder_.setMessage(builderForValue.build());
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ResultResponse result = 1;</code>
-     */
-    public Builder mergeResult(be.generated.result.ResultResponse value) {
-      if (resultBuilder_ == null) {
-        if (result_ != null) {
-          result_ =
-            be.generated.result.ResultResponse.newBuilder(result_).mergeFrom(value).buildPartial();
-        } else {
-          result_ = value;
-        }
-        onChanged();
-      } else {
-        resultBuilder_.mergeFrom(value);
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ResultResponse result = 1;</code>
-     */
-    public Builder clearResult() {
-      if (resultBuilder_ == null) {
-        result_ = null;
-        onChanged();
-      } else {
-        result_ = null;
-        resultBuilder_ = null;
-      }
-
-      return this;
-    }
-    /**
-     * <code>.ResultResponse result = 1;</code>
-     */
-    public be.generated.result.ResultResponse.Builder getResultBuilder() {
-      
+    public Builder setId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      id_ = value;
       onChanged();
-      return getResultFieldBuilder().getBuilder();
+      return this;
     }
     /**
-     * <code>.ResultResponse result = 1;</code>
+     * <code>string id = 1;</code>
+     * @return This builder for chaining.
      */
-    public be.generated.result.ResultResponseOrBuilder getResultOrBuilder() {
-      if (resultBuilder_ != null) {
-        return resultBuilder_.getMessageOrBuilder();
+    public Builder clearId() {
+      
+      id_ = getDefaultInstance().getId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string id = 1;</code>
+     * @param value The bytes for id to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      id_ = value;
+      onChanged();
+      return this;
+    }
+
+    private int maths_ = 0;
+    /**
+     * <code>.common.Grade maths = 2;</code>
+     * @return The enum numeric value on the wire for maths.
+     */
+    public int getMathsValue() {
+      return maths_;
+    }
+    /**
+     * <code>.common.Grade maths = 2;</code>
+     * @param value The enum numeric value on the wire for maths to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMathsValue(int value) {
+      maths_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.common.Grade maths = 2;</code>
+     * @return The maths.
+     */
+    public be.generated.grade.Grade getMaths() {
+      @SuppressWarnings("deprecation")
+      be.generated.grade.Grade result = be.generated.grade.Grade.valueOf(maths_);
+      return result == null ? be.generated.grade.Grade.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.common.Grade maths = 2;</code>
+     * @param value The maths to set.
+     * @return This builder for chaining.
+     */
+    public Builder setMaths(be.generated.grade.Grade value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      maths_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.common.Grade maths = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearMaths() {
+      
+      maths_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int art_ = 0;
+    /**
+     * <code>.common.Grade art = 3;</code>
+     * @return The enum numeric value on the wire for art.
+     */
+    public int getArtValue() {
+      return art_;
+    }
+    /**
+     * <code>.common.Grade art = 3;</code>
+     * @param value The enum numeric value on the wire for art to set.
+     * @return This builder for chaining.
+     */
+    public Builder setArtValue(int value) {
+      art_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.common.Grade art = 3;</code>
+     * @return The art.
+     */
+    public be.generated.grade.Grade getArt() {
+      @SuppressWarnings("deprecation")
+      be.generated.grade.Grade result = be.generated.grade.Grade.valueOf(art_);
+      return result == null ? be.generated.grade.Grade.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.common.Grade art = 3;</code>
+     * @param value The art to set.
+     * @return This builder for chaining.
+     */
+    public Builder setArt(be.generated.grade.Grade value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      art_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.common.Grade art = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearArt() {
+      
+      art_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int chemistry_ = 0;
+    /**
+     * <code>.common.Grade chemistry = 4;</code>
+     * @return The enum numeric value on the wire for chemistry.
+     */
+    public int getChemistryValue() {
+      return chemistry_;
+    }
+    /**
+     * <code>.common.Grade chemistry = 4;</code>
+     * @param value The enum numeric value on the wire for chemistry to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChemistryValue(int value) {
+      chemistry_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.common.Grade chemistry = 4;</code>
+     * @return The chemistry.
+     */
+    public be.generated.grade.Grade getChemistry() {
+      @SuppressWarnings("deprecation")
+      be.generated.grade.Grade result = be.generated.grade.Grade.valueOf(chemistry_);
+      return result == null ? be.generated.grade.Grade.UNRECOGNIZED : result;
+    }
+    /**
+     * <code>.common.Grade chemistry = 4;</code>
+     * @param value The chemistry to set.
+     * @return This builder for chaining.
+     */
+    public Builder setChemistry(be.generated.grade.Grade value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      
+      chemistry_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>.common.Grade chemistry = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearChemistry() {
+      
+      chemistry_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object studentId_ = "";
+    /**
+     * <code>string student_id = 5;</code>
+     * @return The studentId.
+     */
+    public java.lang.String getStudentId() {
+      java.lang.Object ref = studentId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        studentId_ = s;
+        return s;
       } else {
-        return result_ == null ?
-            be.generated.result.ResultResponse.getDefaultInstance() : result_;
+        return (java.lang.String) ref;
       }
     }
     /**
-     * <code>.ResultResponse result = 1;</code>
+     * <code>string student_id = 5;</code>
+     * @return The bytes for studentId.
      */
-    private com.google.protobuf.SingleFieldBuilderV3<
-        be.generated.result.ResultResponse, be.generated.result.ResultResponse.Builder, be.generated.result.ResultResponseOrBuilder> 
-        getResultFieldBuilder() {
-      if (resultBuilder_ == null) {
-        resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-            be.generated.result.ResultResponse, be.generated.result.ResultResponse.Builder, be.generated.result.ResultResponseOrBuilder>(
-                getResult(),
-                getParentForChildren(),
-                isClean());
-        result_ = null;
+    public com.google.protobuf.ByteString
+        getStudentIdBytes() {
+      java.lang.Object ref = studentId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        studentId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
       }
-      return resultBuilder_;
+    }
+    /**
+     * <code>string student_id = 5;</code>
+     * @param value The studentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStudentId(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      studentId_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string student_id = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStudentId() {
+      
+      studentId_ = getDefaultInstance().getStudentId();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string student_id = 5;</code>
+     * @param value The bytes for studentId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStudentIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      studentId_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -562,10 +931,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:Result)
+    // @@protoc_insertion_point(builder_scope:resources.Result)
   }
 
-  // @@protoc_insertion_point(class_scope:Result)
+  // @@protoc_insertion_point(class_scope:resources.Result)
   private static final be.generated.result.Result DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new be.generated.result.Result();

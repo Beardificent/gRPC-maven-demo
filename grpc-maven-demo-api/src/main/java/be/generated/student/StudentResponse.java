@@ -4,11 +4,11 @@
 package be.generated.student;
 
 /**
- * Protobuf type {@code StudentResponse}
+ * Protobuf type {@code resources.StudentResponse}
  */
 public  final class StudentResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:StudentResponse)
+    // @@protoc_insertion_point(message_implements:resources.StudentResponse)
     StudentResponseOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use StudentResponse.newBuilder() to construct.
@@ -19,9 +19,6 @@ private static final long serialVersionUID = 0L;
     studentId_ = "";
     name_ = "";
     gender_ = 0;
-    maths_ = 0;
-    art_ = 0;
-    chemistry_ = 0;
   }
 
   @java.lang.Override
@@ -77,24 +74,6 @@ private static final long serialVersionUID = 0L;
             gender_ = rawValue;
             break;
           }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            maths_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            art_ = rawValue;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            chemistry_ = rawValue;
-            break;
-          }
           default: {
             if (!parseUnknownField(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -116,13 +95,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return be.generated.student.Student.internal_static_StudentResponse_descriptor;
+    return be.generated.student.StudentOuterClass.internal_static_resources_StudentResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return be.generated.student.Student.internal_static_StudentResponse_fieldAccessorTable
+    return be.generated.student.StudentOuterClass.internal_static_resources_StudentResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             be.generated.student.StudentResponse.class, be.generated.student.StudentResponse.Builder.class);
   }
@@ -212,77 +191,20 @@ private static final long serialVersionUID = 0L;
   public static final int GENDER_FIELD_NUMBER = 4;
   private int gender_;
   /**
-   * <code>.Gender gender = 4;</code>
+   * <code>.common.Gender gender = 4;</code>
    * @return The enum numeric value on the wire for gender.
    */
   public int getGenderValue() {
     return gender_;
   }
   /**
-   * <code>.Gender gender = 4;</code>
+   * <code>.common.Gender gender = 4;</code>
    * @return The gender.
    */
-  public be.generated.student.Gender getGender() {
+  public be.generated.gender.Gender getGender() {
     @SuppressWarnings("deprecation")
-    be.generated.student.Gender result = be.generated.student.Gender.valueOf(gender_);
-    return result == null ? be.generated.student.Gender.UNRECOGNIZED : result;
-  }
-
-  public static final int MATHS_FIELD_NUMBER = 5;
-  private int maths_;
-  /**
-   * <code>.Grade maths = 5;</code>
-   * @return The enum numeric value on the wire for maths.
-   */
-  public int getMathsValue() {
-    return maths_;
-  }
-  /**
-   * <code>.Grade maths = 5;</code>
-   * @return The maths.
-   */
-  public be.generated.student.Grade getMaths() {
-    @SuppressWarnings("deprecation")
-    be.generated.student.Grade result = be.generated.student.Grade.valueOf(maths_);
-    return result == null ? be.generated.student.Grade.UNRECOGNIZED : result;
-  }
-
-  public static final int ART_FIELD_NUMBER = 6;
-  private int art_;
-  /**
-   * <code>.Grade art = 6;</code>
-   * @return The enum numeric value on the wire for art.
-   */
-  public int getArtValue() {
-    return art_;
-  }
-  /**
-   * <code>.Grade art = 6;</code>
-   * @return The art.
-   */
-  public be.generated.student.Grade getArt() {
-    @SuppressWarnings("deprecation")
-    be.generated.student.Grade result = be.generated.student.Grade.valueOf(art_);
-    return result == null ? be.generated.student.Grade.UNRECOGNIZED : result;
-  }
-
-  public static final int CHEMISTRY_FIELD_NUMBER = 7;
-  private int chemistry_;
-  /**
-   * <code>.Grade chemistry = 7;</code>
-   * @return The enum numeric value on the wire for chemistry.
-   */
-  public int getChemistryValue() {
-    return chemistry_;
-  }
-  /**
-   * <code>.Grade chemistry = 7;</code>
-   * @return The chemistry.
-   */
-  public be.generated.student.Grade getChemistry() {
-    @SuppressWarnings("deprecation")
-    be.generated.student.Grade result = be.generated.student.Grade.valueOf(chemistry_);
-    return result == null ? be.generated.student.Grade.UNRECOGNIZED : result;
+    be.generated.gender.Gender result = be.generated.gender.Gender.valueOf(gender_);
+    return result == null ? be.generated.gender.Gender.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -308,17 +230,8 @@ private static final long serialVersionUID = 0L;
     if (age_ != 0) {
       output.writeInt32(3, age_);
     }
-    if (gender_ != be.generated.student.Gender.MALE.getNumber()) {
+    if (gender_ != be.generated.gender.Gender.MALE.getNumber()) {
       output.writeEnum(4, gender_);
-    }
-    if (maths_ != be.generated.student.Grade.PASS.getNumber()) {
-      output.writeEnum(5, maths_);
-    }
-    if (art_ != be.generated.student.Grade.PASS.getNumber()) {
-      output.writeEnum(6, art_);
-    }
-    if (chemistry_ != be.generated.student.Grade.PASS.getNumber()) {
-      output.writeEnum(7, chemistry_);
     }
     unknownFields.writeTo(output);
   }
@@ -339,21 +252,9 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, age_);
     }
-    if (gender_ != be.generated.student.Gender.MALE.getNumber()) {
+    if (gender_ != be.generated.gender.Gender.MALE.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, gender_);
-    }
-    if (maths_ != be.generated.student.Grade.PASS.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(5, maths_);
-    }
-    if (art_ != be.generated.student.Grade.PASS.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(6, art_);
-    }
-    if (chemistry_ != be.generated.student.Grade.PASS.getNumber()) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeEnumSize(7, chemistry_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -377,9 +278,6 @@ private static final long serialVersionUID = 0L;
     if (getAge()
         != other.getAge()) return false;
     if (gender_ != other.gender_) return false;
-    if (maths_ != other.maths_) return false;
-    if (art_ != other.art_) return false;
-    if (chemistry_ != other.chemistry_) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -399,12 +297,6 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAge();
     hash = (37 * hash) + GENDER_FIELD_NUMBER;
     hash = (53 * hash) + gender_;
-    hash = (37 * hash) + MATHS_FIELD_NUMBER;
-    hash = (53 * hash) + maths_;
-    hash = (37 * hash) + ART_FIELD_NUMBER;
-    hash = (53 * hash) + art_;
-    hash = (37 * hash) + CHEMISTRY_FIELD_NUMBER;
-    hash = (53 * hash) + chemistry_;
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -501,21 +393,21 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * Protobuf type {@code StudentResponse}
+   * Protobuf type {@code resources.StudentResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:StudentResponse)
+      // @@protoc_insertion_point(builder_implements:resources.StudentResponse)
       be.generated.student.StudentResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return be.generated.student.Student.internal_static_StudentResponse_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_resources_StudentResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return be.generated.student.Student.internal_static_StudentResponse_fieldAccessorTable
+      return be.generated.student.StudentOuterClass.internal_static_resources_StudentResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               be.generated.student.StudentResponse.class, be.generated.student.StudentResponse.Builder.class);
     }
@@ -546,19 +438,13 @@ private static final long serialVersionUID = 0L;
 
       gender_ = 0;
 
-      maths_ = 0;
-
-      art_ = 0;
-
-      chemistry_ = 0;
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return be.generated.student.Student.internal_static_StudentResponse_descriptor;
+      return be.generated.student.StudentOuterClass.internal_static_resources_StudentResponse_descriptor;
     }
 
     @java.lang.Override
@@ -582,9 +468,6 @@ private static final long serialVersionUID = 0L;
       result.name_ = name_;
       result.age_ = age_;
       result.gender_ = gender_;
-      result.maths_ = maths_;
-      result.art_ = art_;
-      result.chemistry_ = chemistry_;
       onBuilt();
       return result;
     }
@@ -646,15 +529,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.gender_ != 0) {
         setGenderValue(other.getGenderValue());
-      }
-      if (other.maths_ != 0) {
-        setMathsValue(other.getMathsValue());
-      }
-      if (other.art_ != 0) {
-        setArtValue(other.getArtValue());
-      }
-      if (other.chemistry_ != 0) {
-        setChemistryValue(other.getChemistryValue());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -869,14 +743,14 @@ private static final long serialVersionUID = 0L;
 
     private int gender_ = 0;
     /**
-     * <code>.Gender gender = 4;</code>
+     * <code>.common.Gender gender = 4;</code>
      * @return The enum numeric value on the wire for gender.
      */
     public int getGenderValue() {
       return gender_;
     }
     /**
-     * <code>.Gender gender = 4;</code>
+     * <code>.common.Gender gender = 4;</code>
      * @param value The enum numeric value on the wire for gender to set.
      * @return This builder for chaining.
      */
@@ -886,20 +760,20 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Gender gender = 4;</code>
+     * <code>.common.Gender gender = 4;</code>
      * @return The gender.
      */
-    public be.generated.student.Gender getGender() {
+    public be.generated.gender.Gender getGender() {
       @SuppressWarnings("deprecation")
-      be.generated.student.Gender result = be.generated.student.Gender.valueOf(gender_);
-      return result == null ? be.generated.student.Gender.UNRECOGNIZED : result;
+      be.generated.gender.Gender result = be.generated.gender.Gender.valueOf(gender_);
+      return result == null ? be.generated.gender.Gender.UNRECOGNIZED : result;
     }
     /**
-     * <code>.Gender gender = 4;</code>
+     * <code>.common.Gender gender = 4;</code>
      * @param value The gender to set.
      * @return This builder for chaining.
      */
-    public Builder setGender(be.generated.student.Gender value) {
+    public Builder setGender(be.generated.gender.Gender value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -909,168 +783,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
     /**
-     * <code>.Gender gender = 4;</code>
+     * <code>.common.Gender gender = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearGender() {
       
       gender_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int maths_ = 0;
-    /**
-     * <code>.Grade maths = 5;</code>
-     * @return The enum numeric value on the wire for maths.
-     */
-    public int getMathsValue() {
-      return maths_;
-    }
-    /**
-     * <code>.Grade maths = 5;</code>
-     * @param value The enum numeric value on the wire for maths to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMathsValue(int value) {
-      maths_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Grade maths = 5;</code>
-     * @return The maths.
-     */
-    public be.generated.student.Grade getMaths() {
-      @SuppressWarnings("deprecation")
-      be.generated.student.Grade result = be.generated.student.Grade.valueOf(maths_);
-      return result == null ? be.generated.student.Grade.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.Grade maths = 5;</code>
-     * @param value The maths to set.
-     * @return This builder for chaining.
-     */
-    public Builder setMaths(be.generated.student.Grade value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      maths_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Grade maths = 5;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearMaths() {
-      
-      maths_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int art_ = 0;
-    /**
-     * <code>.Grade art = 6;</code>
-     * @return The enum numeric value on the wire for art.
-     */
-    public int getArtValue() {
-      return art_;
-    }
-    /**
-     * <code>.Grade art = 6;</code>
-     * @param value The enum numeric value on the wire for art to set.
-     * @return This builder for chaining.
-     */
-    public Builder setArtValue(int value) {
-      art_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Grade art = 6;</code>
-     * @return The art.
-     */
-    public be.generated.student.Grade getArt() {
-      @SuppressWarnings("deprecation")
-      be.generated.student.Grade result = be.generated.student.Grade.valueOf(art_);
-      return result == null ? be.generated.student.Grade.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.Grade art = 6;</code>
-     * @param value The art to set.
-     * @return This builder for chaining.
-     */
-    public Builder setArt(be.generated.student.Grade value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      art_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Grade art = 6;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearArt() {
-      
-      art_ = 0;
-      onChanged();
-      return this;
-    }
-
-    private int chemistry_ = 0;
-    /**
-     * <code>.Grade chemistry = 7;</code>
-     * @return The enum numeric value on the wire for chemistry.
-     */
-    public int getChemistryValue() {
-      return chemistry_;
-    }
-    /**
-     * <code>.Grade chemistry = 7;</code>
-     * @param value The enum numeric value on the wire for chemistry to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChemistryValue(int value) {
-      chemistry_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Grade chemistry = 7;</code>
-     * @return The chemistry.
-     */
-    public be.generated.student.Grade getChemistry() {
-      @SuppressWarnings("deprecation")
-      be.generated.student.Grade result = be.generated.student.Grade.valueOf(chemistry_);
-      return result == null ? be.generated.student.Grade.UNRECOGNIZED : result;
-    }
-    /**
-     * <code>.Grade chemistry = 7;</code>
-     * @param value The chemistry to set.
-     * @return This builder for chaining.
-     */
-    public Builder setChemistry(be.generated.student.Grade value) {
-      if (value == null) {
-        throw new NullPointerException();
-      }
-      
-      chemistry_ = value.getNumber();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>.Grade chemistry = 7;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearChemistry() {
-      
-      chemistry_ = 0;
       onChanged();
       return this;
     }
@@ -1087,10 +805,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:StudentResponse)
+    // @@protoc_insertion_point(builder_scope:resources.StudentResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:StudentResponse)
+  // @@protoc_insertion_point(class_scope:resources.StudentResponse)
   private static final be.generated.student.StudentResponse DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new be.generated.student.StudentResponse();

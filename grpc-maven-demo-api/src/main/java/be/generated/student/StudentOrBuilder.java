@@ -4,30 +4,36 @@
 package be.generated.student;
 
 public interface StudentOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:Student)
+    // @@protoc_insertion_point(interface_extends:resources.Student)
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>repeated .StudentResponse student = 1;</code>
+   * <code>.resources.StudentResponse student = 1;</code>
+   * @return Whether the student field is set.
    */
-  java.util.List<be.generated.student.StudentResponse> 
-      getStudentList();
+  boolean hasStudent();
   /**
-   * <code>repeated .StudentResponse student = 1;</code>
+   * <code>.resources.StudentResponse student = 1;</code>
+   * @return The student.
    */
-  be.generated.student.StudentResponse getStudent(int index);
+  be.generated.student.StudentResponse getStudent();
   /**
-   * <code>repeated .StudentResponse student = 1;</code>
+   * <code>.resources.StudentResponse student = 1;</code>
    */
-  int getStudentCount();
+  be.generated.student.StudentResponseOrBuilder getStudentOrBuilder();
+
   /**
-   * <code>repeated .StudentResponse student = 1;</code>
+   * <code>.resources.Result results = 2;</code>
+   * @return Whether the results field is set.
    */
-  java.util.List<? extends be.generated.student.StudentResponseOrBuilder> 
-      getStudentOrBuilderList();
+  boolean hasResults();
   /**
-   * <code>repeated .StudentResponse student = 1;</code>
+   * <code>.resources.Result results = 2;</code>
+   * @return The results.
    */
-  be.generated.student.StudentResponseOrBuilder getStudentOrBuilder(
-      int index);
+  be.generated.result.Result getResults();
+  /**
+   * <code>.resources.Result results = 2;</code>
+   */
+  be.generated.result.ResultOrBuilder getResultsOrBuilder();
 }

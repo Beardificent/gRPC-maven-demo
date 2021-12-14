@@ -4,7 +4,7 @@
 package be.generated.student;
 
 public interface StudentRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:StudentRequest)
+    // @@protoc_insertion_point(interface_extends:resources.StudentRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**
@@ -38,13 +38,28 @@ public interface StudentRequestOrBuilder extends
   int getAge();
 
   /**
-   * <code>.Gender gender = 4;</code>
+   * <code>.common.Gender gender = 4;</code>
    * @return The enum numeric value on the wire for gender.
    */
   int getGenderValue();
   /**
-   * <code>.Gender gender = 4;</code>
+   * <code>.common.Gender gender = 4;</code>
    * @return The gender.
    */
-  be.generated.student.Gender getGender();
+  be.generated.gender.Gender getGender();
+
+  /**
+   * <code>.resources.Result results = 5;</code>
+   * @return Whether the results field is set.
+   */
+  boolean hasResults();
+  /**
+   * <code>.resources.Result results = 5;</code>
+   * @return The results.
+   */
+  be.generated.result.Result getResults();
+  /**
+   * <code>.resources.Result results = 5;</code>
+   */
+  be.generated.result.ResultOrBuilder getResultsOrBuilder();
 }
