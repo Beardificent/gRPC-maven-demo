@@ -12,17 +12,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
+import lombok.Builder;
 
 @Entity
 @Table(name ="result")
-@Data
-@SuperBuilder(toBuilder = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder(toBuilder = true)
 public class Result {
 
     @Id
@@ -44,9 +38,6 @@ public class Result {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    private Student student;
+    private StudentEntity student;
 
-    public Student getStudent() {
-        return student.toBuilder().build();
-      }
 }

@@ -6,37 +6,57 @@ import "common/gender.proto";
 import "result.proto";
 
 option java_multiple_files = true;
-option java_package = "be.generated.student";
+option java_package = "be.moesmedia.generated.student";
 
 
 service StudentService {
-    rpc getStudentOverview(StudentRequest) returns (Student){};
-    rpc createStudent(StudentRequest) returns (StudentResponse){};
-    rpc updateStudent(StudentRequest) returns (StudentResponse){};
-    rpc deleteStudent(StudentRequest) returns (Void){};
+    rpc getStudentOverview(GetManyStudentsRequest) returns (GetManyStudentsResponse){};
+    rpc createStudent(CreateOneStudentRequest) returns (CreateOneStudentResponse){};
+    rpc updateStudent(UpdateOneStudentRequest) returns (UpdateOneStudentResponse){};
+    rpc deleteStudent(DeleteOneStudentRequest) returns (DeleteOneStudentResponse){};
 }
 
-message StudentRequest {
-    string student_id = 1;
+message CreateOneStudentRequest {
+    Student student = 1;
+}
+
+message CreateOneStudentResponse {
+    string id = 1;
+}
+
+message DeleteOneStudentRequest {
+    string id = 1;
+}
+
+message DeleteOneStudentResponse {
+    bool success = 1;
+}
+
+message GetManyStudentsRequest {
+    PagingInfo page = 1;
+}
+
+message GetManyStudentsResponse {
+    repeated Student students = 1;
+}
+
+message UpdateOneStudentRequest {
+    Student student = 1;
+}
+
+message UpdateOneStudentResponse {
+    string checksum = 1;
+}
+
+message Student {
+    string id = 1;
     string name = 2;
     int32 age = 3;
     common.Gender gender = 4;
     Result results = 5;
 }
 
-message StudentResponse {
-    string student_id = 1;
-    string name = 2;
-    int32 age = 3;
-    common.Gender gender = 4;
-
-}
-
-message Student {
-    StudentResponse student = 1;
-    Result results = 2;
-}
-
-message Void {
-
+message PagingInfo {
+    int32 currentPage = 1;
+    int32 itemsPerPage = 2;
 }

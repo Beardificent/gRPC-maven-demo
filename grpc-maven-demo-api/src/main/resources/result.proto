@@ -5,7 +5,7 @@ package resources;
 import "common/grade.proto";
 
 option java_multiple_files = true;
-option java_package = "be.generated.result";
+option java_package = "be.moesmedia.generated.result";
 
 
  message Result {
