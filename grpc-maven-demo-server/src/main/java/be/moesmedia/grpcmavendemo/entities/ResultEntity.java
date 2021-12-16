@@ -17,7 +17,7 @@ import lombok.Builder;
 @Entity
 @Table(name ="result")
 @Builder(toBuilder = true)
-public class Result {
+public class ResultEntity {
 
     @Id
     @GeneratedValue(generator = "system-uuid")

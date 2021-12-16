@@ -1,1 +1,4 @@
-
+grpc:
+  server:
+    host: localhost
+    port: 6565

@@ -1,55 +1,37 @@
 package be.moesmedia.grpcmavendemoclient.services;
 
-import be.moesmedia.generated.gender.Gender;
-import be.moesmedia.generated.grade.Grade;
-import be.moesmedia.generated.result.Result;
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
-import lombok.AllArgsConstructor;
+import be.moesmedia.generated.student.GetManyStudentsRequest;
+import be.moesmedia.generated.student.PagingInfo;
+import be.moesmedia.generated.student.Student;
+import be.moesmedia.generated.student.StudentServiceGrpc.StudentServiceBlockingStub;
+import be.moesmedia.grpcmavendemoclient.dto.StudentDetailDto;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
+import java.util.function.Function;
+
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class ClientStudentService {
 
-  ManagedChannel managedChannel = ManagedChannelBuilder
-    .forAddress("localhost", 6565)
-    .usePlaintext()
-    .build();
+  private final StudentServiceBlockingStub studentServiceStub;
+  private final Function<Student, StudentDetailDto> studentMessageToDtoMapper;
 
-  StudentServiceBlockingStub studentServiceBlockingStub = StudentServiceGrpc.newBlockingStub(
-    managedChannel
-  );
-
-  public Student getStudentOverview() {
-    Result resultResponse = Result
-      .newBuilder()
-      .setMaths(Grade.FAIL)
-      .setArt(Grade.FAIL)
-      .setChemistry(Grade.FAIL)
-      .build();
-
-    Student student = studentServiceBlockingStub.getStudentOverview(
-      StudentRequest
+  public List<Student> getStudentOverview() {
+    final var getManyStudentResponse = studentServiceStub.getStudentOverview(
+      GetManyStudentsRequest
         .newBuilder()
-        .setName("FemFluppe")
-        .setAge(17)
-        .setGender(Gender.FEMALE)
-        .setResults(resultResponse)
+        .setPage(
+          PagingInfo.newBuilder().setCurrentPage(0).setItemsPerPage(15).build()
+        )
         .build()
     );
 
-    log.info("Received student response");
-    log.info("name: " + student.getStudent().getName());
-    log.info("age: " + student.getStudent().getAge());
-    log.info("gender: " + student.getStudent().getGender());
-    log.info("grades: " + student.getResults().getMaths());
-    log.info("grades: " + student.getResults().getArt());
-    log.info("grades: " + student.getResults().getChemistry());
-    log.info(student.toString());
-
-    log.info("CLIENT SIDE ::  GRPC_CLIENT_STUDENT_SERVICE has been used");
-    return student;
+    log.info("Received student response: " + getManyStudentResponse.toString());
+    return getManyStudentResponse.getStudentsList();
   }
 }

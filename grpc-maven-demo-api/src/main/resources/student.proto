@@ -53,7 +53,7 @@ message Student {
     string name = 2;
     int32 age = 3;
     common.Gender gender = 4;
-    Result results = 5;
+    repeated Result results = 5;
 }
 
 message PagingInfo {

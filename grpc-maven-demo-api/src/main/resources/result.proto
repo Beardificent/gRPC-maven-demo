@@ -7,7 +7,6 @@ import "common/grade.proto";
 option java_multiple_files = true;
 option java_package = "be.moesmedia.generated.result";
 
-
  message Result {
     string id = 1;
     common.Grade maths = 2;

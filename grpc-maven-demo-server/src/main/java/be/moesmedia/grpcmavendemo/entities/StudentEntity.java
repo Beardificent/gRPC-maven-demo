@@ -48,6 +48,6 @@ public class StudentEntity {
 
     @Builder.Default
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<Result> results = new ArrayList<>();
+    private List<ResultEntity> results = new ArrayList<>();
   
 }

@@ -1,9 +1,9 @@
-package be.moesmedia.grpcmavendemo.commons.mappers;
+package be.moesmedia.grpcmavendemoclient.commons.mappers;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.ParameterizedType;
 
-import be.moesmedia.grpcmavendemo.commons.exceptions.MapperFailedException;
+import be.moesmedia.grpcmavendemoclient.commons.exceptions.MapperFailedException;
 
  
 public interface BiMapper<INPUT, OUTPUT> extends Mapper<INPUT, OUTPUT> {
